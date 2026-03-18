@@ -835,23 +835,45 @@ function scoreRow(label, pts) {
 
 // ─── ENVIO VIA FORMULÁRIO OCULTO (sem bloqueio de CORS) ──────────────────────
 function enviarViaFormulario(payload) {
-  if (!SHEETS_URL) return;
-  try {
-    const form = document.createElement('form');
-    form.method = 'POST';
-    form.action = SHEETS_URL;
-    form.target = 'submit-frame'; // aponta para o iframe oculto — não abre nova aba
-    const campo = document.createElement('input');
-    campo.type  = 'hidden';
-    campo.name  = 'data';
-    campo.value = JSON.stringify(payload);
-    form.appendChild(campo);
-    document.body.appendChild(form);
-    form.submit();
-    setTimeout(() => document.body.removeChild(form), 3000);
-  } catch(e) {
-    console.warn('Erro ao enviar:', e);
-  }
+  const FORM_ID = "1FAIpQLSeea1GS3IG_wfqO9iPz25cGyn4qDNmEXNXPCF6QvMGlMBYGGQ";
+
+  const campos = {
+    "entry.1402585312":  payload.timestamp       || "",
+    "entry.984134885":  payload.tipo            || "",
+    "entry.733557435":  payload.codigo_pessoal  || "",
+    "entry.1869197200":  payload.idade           || "",
+    "entry.1602150156":  payload.estado          || "",
+    "entry.2077030360":  payload.escolaridade    || "",
+    "entry.1905956594":  payload.hpv             || "",
+    "entry.2071628760":  payload.citologia       || "",
+    "entry.1576825425":  payload.vacina          || "",
+    "entry.1388071776": payload.tabaco          || "",
+    "entry.2068267390": payload.aco             || "",
+    "entry.1326835055": payload.paridade        || "",
+    "entry.1768865416": payload.inicio_sexual   || "",
+    "entry.1433805499": payload.imunossupressao || "",
+    "entry.1711897152": payload.nivel1          || "",
+    "entry.823433216": payload.nivel1_motivo   || "",
+    "entry.1262400242": payload.score_total     || "",
+    "entry.1270514374": payload.classificacao   || "",
+    "entry.539747785": payload.bloco_a         || "",
+    "entry.329751133": payload.bloco_b         || "",
+    "entry.368890485": payload.bloco_c         || "",
+    "entry.1400756823": payload.bloco_d         || "",
+    "entry.1575899407": payload.realizou_exame  || "",
+    "entry.1429545503": payload.resultado_exame || "",
+    "entry.76469462": payload.barreira        || ""
+  };
+
+  const url = "https://docs.google.com/forms/d/e/" + FORM_ID + "/formResponse";
+  const body = new URLSearchParams(campos);
+
+  fetch(url, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: body.toString()
+  }).catch(e => console.warn("Erro ao enviar:", e));
 }
 
 function enviarDados(dados, resultado, codigo) {
