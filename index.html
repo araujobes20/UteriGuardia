@@ -799,7 +799,7 @@ async function enviarFollowup() {
     barreira: document.querySelector('#fu-barreira .option.selected input')?.value || '',
   };
   try {
-    if (SHEETS_URL && !SHEETS_URL.includes('COLE_AQUI')) {
+    if (SHEETS_URL && !SHEETS_URL.includes('https://script.google.com/macros/s/AKfycbzVOxS6patai3CkUKKlZA8OE3iQTtssjj__gQhTrh-NFZzXVX8ICQdB9AC_GxBaDd0vHQ/exec')) {
       await fetch(SHEETS_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
     }
   } catch(e) { console.warn(e); }
@@ -964,7 +964,7 @@ function scoreRow(label, pts) {
 
 // ─── ENVIO PARA SHEETS ───────────────────────────────────────
 async function enviarParaSheets(dados, resultado, codigo) {
-  if (!SHEETS_URL || SHEETS_URL.includes('COLE_AQUI')) return;
+  if (!SHEETS_URL || SHEETS_URL.includes('https://script.google.com/macros/s/AKfycbzVOxS6patai3CkUKKlZA8OE3iQTtssjj__gQhTrh-NFZzXVX8ICQdB9AC_GxBaDd0vHQ/exec')) return;
   try {
     const payload = {
       tipo: 'avaliacao_inicial',
