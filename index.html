@@ -501,6 +501,9 @@
 
     <button class="btn btn-primary" onclick="goTo('screen-tcle')">
       Começar <span>→</span>
+</button>
+<button class="btn btn-secondary" onclick="goTo('screen-followup')" style="margin-top:10px;">
+  Já participei — informar resultado do exame
     </button>
     <p style="text-align:center; font-size:12px; color:var(--gray-500); margin-top:14px;">
       Projeto de pesquisa — Faculdade Privada<br/>
@@ -619,7 +622,36 @@
         <option>São Paulo</option><option>Sergipe</option><option>Tocantins</option>
       </select>
     </div>
+<!-- Gerador de código pessoal -->
+<div class="q-card">
+  <div class="q-label">Primeiras 2 letras do nome da sua mãe</div>
+  <div class="q-hint">Usado apenas para gerar seu código anônimo de acompanhamento. Ex: se o nome é "Maria", digite MA</div>
+  <input type="text" class="num-input" id="q-mae"
+         placeholder="Ex: MA"
+         maxlength="2"
+         oninput="this.value=this.value.toUpperCase().replace(/[^A-Z]/g,''); updateNavDemo()"
+         style="text-transform:uppercase; letter-spacing:0.2em; font-weight:600;"/>
+</div>
 
+<div class="q-card">
+  <div class="q-label">Dia e mês do seu nascimento</div>
+  <div class="q-hint">Ex: nasceu dia 14 de março → dia: 14, mês: 03</div>
+  <div style="display:flex; gap:12px;">
+    <div style="flex:1;">
+      <div style="font-size:12px; color:var(--gray-500); margin-bottom:6px;">Dia</div>
+      <input type="number" class="num-input" id="q-nasc-dia"
+             min="1" max="31" placeholder="DD"
+             oninput="updateNavDemo()"/>
+    </div>
+    <div style="flex:1;">
+      <div style="font-size:12px; color:var(--gray-500); margin-bottom:6px;">Mês</div>
+      <input type="number" class="num-input" id="q-nasc-mes"
+             min="1" max="12" placeholder="MM"
+             oninput="updateNavDemo()"/>
+    </div>
+  </div>
+</div>
+```
     <div class="nav-row">
       <button class="btn-back" onclick="goTo('screen-tcle')">←</button>
       <button class="btn-next" id="btn-demo-next" onclick="goTo('screen-blocoA')" disabled>
@@ -970,14 +1002,166 @@
   <div class="screen" id="screen-resultado">
     <div id="result-content"></div>
   </div>
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- TELA FOLLOW-UP                                         -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="screen" id="screen-followup">
+  <div class="top-nav">
+    <span class="step-indicator">Follow-up</span>
+  </div>
+  <div class="section-header">
+    <div class="section-badge">🔄 Retorno</div>
+    <h2 class="section-title">Informe o resultado do seu exame</h2>
+    <p class="section-desc">Digite o código pessoal que você recebeu na sua primeira participação para vincular os dados.</p>
+  </div>
 
+  <div class="q-card">
+    <div class="q-label">Seu código pessoal</div>
+    <div class="q-hint">Ex: MA1403 — o mesmo código exibido no seu resultado anterior</div>
+    <input type="text" class="num-input" id="fu-codigo"
+           placeholder="Digite seu código aqui"
+           oninput="this.value=this.value.toUpperCase(); checkFollowup()"
+           maxlength="10" style="text-transform:uppercase; letter-spacing:0.15em; font-weight:600;"/>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">Você realizou o exame recomendado?</div>
+    <div class="options" id="fu-realizou">
+      <label class="option" onclick="selectOption(this,'fu-realizou'); checkFollowup()">
+        <input type="radio" name="fu_realizou" value="sim"/>
+        <span class="radio-dot"></span>
+        <span class="option-text">Sim, realizei o exame</span>
+      </label>
+      <label class="option" onclick="selectOption(this,'fu-realizou'); checkFollowup()">
+        <input type="radio" name="fu_realizou" value="nao_ainda"/>
+        <span class="radio-dot"></span>
+        <span class="option-text">Ainda não realizei, mas pretendo</span>
+      </label>
+      <label class="option" onclick="selectOption(this,'fu-realizou'); checkFollowup()">
+        <input type="radio" name="fu_realizou" value="nao_barreiras"/>
+        <span class="radio-dot"></span>
+        <span class="option-text">Não realizei — encontrei dificuldades</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="q-card" id="fu-resultado-card" style="display:none;">
+    <div class="q-label">Qual foi o resultado do exame?</div>
+    <div class="options" id="fu-resultado">
+      <label class="option" onclick="selectOption(this,'fu-resultado')">
+        <input type="radio" name="fu_resultado" value="dna_hpv_negativo"/>
+        <span class="radio-dot"></span>
+        <span class="option-text">DNA-HPV negativo</span>
+      </label>
+      <label class="option" onclick="selectOption(this,'fu-resultado')">
+        <input type="radio" name="fu_resultado" value="dna_hpv_positivo_nao1618"/>
+        <span class="radio-dot"></span>
+        <span class="option-text">DNA-HPV positivo (não é HPV 16/18)</span>
+      </label>
+      <label class="option" onclick="selectOption(this,'fu-resultado')">
+        <input type="radio" name="fu_resultado" value="dna_hpv_1618"/>
+        <span class="radio-dot"></span>
+        <span class="option-text">DNA-HPV positivo para HPV 16 e/ou 18</span>
+      </label>
+      <label class="option" onclick="selectOption(this,'fu-resultado')">
+        <input type="radio" name="fu_resultado" value="citologia_normal"/>
+        <span class="radio-dot"></span>
+        <span class="option-text">Citologia (Papanicolaou) normal</span>
+      </label>
+      <label class="option" onclick="selectOption(this,'fu-resultado')">
+        <input type="radio" name="fu_resultado" value="citologia_alterada"/>
+        <span class="radio-dot"></span>
+        <span class="option-text">Citologia alterada (ASC-US, LSIL, HSIL)</span>
+      </label>
+      <label class="option" onclick="selectOption(this,'fu-resultado')">
+        <input type="radio" name="fu_resultado" value="colposcopia_normal"/>
+        <span class="radio-dot"></span>
+        <span class="option-text">Colposcopia com biópsia normal / NIC 1</span>
+      </label>
+      <label class="option" onclick="selectOption(this,'fu-resultado')">
+        <input type="radio" name="fu_resultado" value="nic2_3"/>
+        <span class="radio-dot"></span>
+        <span class="option-text">NIC 2 ou NIC 3 confirmado</span>
+      </label>
+      <label class="option" onclick="selectOption(this,'fu-resultado')">
+        <input type="radio" name="fu_resultado" value="aguardando"/>
+        <span class="radio-dot"></span>
+        <span class="option-text">Realizei mas ainda aguardo o resultado</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="q-card" id="fu-barreiras-card" style="display:none;">
+    <div class="q-label">Qual foi a principal dificuldade? (opcional)</div>
+    <div class="options" id="fu-barreira">
+      <label class="option" onclick="selectOption(this,'fu-barreira')">
+        <input type="radio" name="fu_barreira" value="fila_espera"/>
+        <span class="radio-dot"></span>
+        <span class="option-text">Fila de espera muito longa</span>
+      </label>
+      <label class="option" onclick="selectOption(this,'fu-barreira')">
+        <input type="radio" name="fu_barreira" value="falta_tempo"/>
+        <span class="radio-dot"></span>
+        <span class="option-text">Falta de tempo / trabalho</span>
+      </label>
+      <label class="option" onclick="selectOption(this,'fu-barreira')">
+        <input type="radio" name="fu_barreira" value="acesso_ubs"/>
+        <span class="radio-dot"></span>
+        <span class="option-text">Dificuldade de acesso à UBS</span>
+      </label>
+      <label class="option" onclick="selectOption(this,'fu-barreira')">
+        <input type="radio" name="fu_barreira" value="medo"/>
+        <span class="radio-dot"></span>
+        <span class="option-text">Medo ou desconforto com o exame</span>
+      </label>
+      <label class="option" onclick="selectOption(this,'fu-barreira')">
+        <input type="radio" name="fu_barreira" value="nao_soube"/>
+        <span class="radio-dot"></span>
+        <span class="option-text">Não sabia onde fazer</span>
+      </label>
+      <label class="option" onclick="selectOption(this,'fu-barreira')">
+        <input type="radio" name="fu_barreira" value="outra"/>
+        <span class="radio-dot"></span>
+        <span class="option-text">Outro motivo</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="nav-row">
+    <button class="btn-back" onclick="goTo('screen-welcome')">←</button>
+    <button class="btn-next" id="btn-fu-next" onclick="enviarFollowup()" disabled>
+      Enviar dados de follow-up →
+    </button>
+  </div>
+</div>
+
+<!-- Confirmação follow-up -->
+<div class="screen" id="screen-fu-confirmacao">
+  <div style="text-align:center; padding-top:60px;">
+    <div style="font-size:64px; margin-bottom:20px;">✅</div>
+    <h2 style="font-family:var(--font-head); color:var(--teal-dark); margin-bottom:12px;">
+      Dados registrados!
+    </h2>
+    <p style="font-size:15px; color:var(--gray-700); line-height:1.7; margin-bottom:28px;">
+      Suas informações de follow-up foram registradas com sucesso e vinculadas ao seu código pessoal. Obrigada pela sua contribuição com a pesquisa!
+    </p>
+    <div class="ubs-card" style="text-align:left;">
+      <h3>📊 Importância do seu retorno</h3>
+      <p>Ao informar o resultado do exame, você ajuda a validar o algoritmo de risco e contribui diretamente para a melhoria do rastreamento do câncer do colo do útero no Brasil.</p>
+    </div>
+    <button class="btn btn-secondary" onclick="location.reload()" style="margin-top:16px;">
+      Voltar ao início
+    </button>
+  </div>
+</div>
+```
 </div><!-- /app-wrap -->
 
 <script>
 // ═══════════════════════════════════════════════════════════════
 // CONFIGURAÇÃO — COLE AQUI A URL DO SEU GOOGLE APPS SCRIPT
 // ═══════════════════════════════════════════════════════════════
-const SHEETS_URL = "COLE_AQUI_A_URL_DO_SEU_APPS_SCRIPT";
+const SHEETS_URL = "https://script.google.com/macros/s/AKfycbzVOxS6patai3CkUKKlZA8OE3iQTtssjj__gQhTrh-NFZzXVX8ICQdB9AC_GxBaDd0vHQ/exec";
 // Instruções: veja o arquivo CONFIGURACAO_GOOGLE_SHEETS.txt
 
 // ═══════════════════════════════════════════════════════════════
@@ -1097,33 +1281,59 @@ function updateNavDemo() {
   const idade = document.getElementById('q-idade').value;
   const estado = document.getElementById('q-estado').value;
   const esc = document.querySelector('#q-escolaridade .option.selected');
-  const ok = idade && parseInt(idade) >= 18 && parseInt(idade) <= 100 && estado && esc;
+  const mae = document.getElementById('q-mae').value;
+  const dia = document.getElementById('q-nasc-dia').value;
+  const mes = document.getElementById('q-nasc-mes').value;
+  const ok = idade && parseInt(idade) >= 18 && parseInt(idade) <= 100
+          && estado && esc
+          && mae && mae.length === 2
+          && dia && parseInt(dia) >= 1 && parseInt(dia) <= 31
+          && mes && parseInt(mes) >= 1 && parseInt(mes) <= 12;
   document.getElementById('btn-demo-next').disabled = !ok;
 }
 
-function updateNavC() {
-  const sel = document.querySelector('#q-vacina .option.selected');
-  document.getElementById('btn-c-next').disabled = !sel;
+function gerarCodigo() {
+  const mae = document.getElementById('q-mae').value.toUpperCase();
+  const dia = String(document.getElementById('q-nasc-dia').value).padStart(2,'0');
+  const mes = String(document.getElementById('q-nasc-mes').value).padStart(2,'0');
+  return mae + dia + mes;
 }
 
-function updateNavButtons() {
-  // Bloco A
-  const hpvSel = document.querySelector('#q-hpv .option.selected');
-  document.getElementById('btn-a-next').disabled = !hpvSel;
-
-  // Bloco B
-  const citoSel = document.querySelector('#q-cito .option.selected');
-  document.getElementById('btn-b-next').disabled = !citoSel;
-
-  // Bloco D — todos os campos obrigatórios
-  const tabacoSel = document.querySelector('#q-tabaco .option.selected');
-  const acoSel = document.querySelector('#q-aco .option.selected');
-  const paridadeSel = document.querySelector('#q-paridade .option.selected');
-  const inicioSel = document.querySelector('#q-inicio .option.selected');
-  const imunoOk = checkedImuno.size > 0;
-  const dOk = tabacoSel && acoSel && paridadeSel && inicioSel && imunoOk;
-  document.getElementById('btn-d-next').disabled = !dOk;
+function checkFollowup() {
+  const codigo = document.getElementById('fu-codigo').value;
+  const realizou = document.querySelector('#fu-realizou .option.selected input')?.value;
+  document.getElementById('fu-resultado-card').style.display =
+    realizou === 'sim' ? 'block' : 'none';
+  document.getElementById('fu-barreiras-card').style.display =
+    realizou === 'nao_barreiras' ? 'block' : 'none';
+  const ok = codigo.length >= 4 && realizou;
+  document.getElementById('btn-fu-next').disabled = !ok;
 }
+
+async function enviarFollowup() {
+  if (!SHEETS_URL || SHEETS_URL.includes('COLE_AQUI')) {
+    goTo('screen-fu-confirmacao'); return;
+  }
+  document.getElementById('loadingScreen').classList.add('active');
+  const payload = {
+    tipo: 'followup',
+    timestamp: new Date().toISOString(),
+    codigo_pessoal: document.getElementById('fu-codigo').value,
+    realizou_exame: document.querySelector('#fu-realizou .option.selected input')?.value || '',
+    resultado_exame: document.querySelector('#fu-resultado .option.selected input')?.value || '',
+    barreira: document.querySelector('#fu-barreira .option.selected input')?.value || '',
+  };
+  try {
+    await fetch(SHEETS_URL, {
+      method: 'POST', mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+  } catch(e) { console.warn(e); }
+  document.getElementById('loadingScreen').classList.remove('active');
+  goTo('screen-fu-confirmacao');
+}
+```
 
 // ═══════════════════════════════════════════════════════════════
 // CÁLCULO DO SCORE
@@ -1245,12 +1455,24 @@ function renderizarResultado(r, d) {
           <p>Acesse o buscador do Ministério da Saúde: <a href="https://www.cnes.datasus.gov.br" target="_blank">cnes.datasus.gov.br</a></p>
           <p style="margin-top:8px;">Central de regulação do SUS: ligue <strong>136</strong></p>
         </div>
-        <div class="disclaimer">⚠️ Este aplicativo é um instrumento de triagem e não substitui avaliação médica presencial. Em caso de dúvida, procure sempre um profissional de saúde.</div>
+        <div style="background:var(--teal-dark); border-radius:var(--radius); padding:20px; margin-bottom:14px; text-align:center;">
+  <p style="font-size:12px; color:rgba(255,255,255,0.7); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.08em;">Seu código pessoal de acompanhamento</p>
+  <p style="font-family:var(--font-head); font-size:32px; font-weight:700; color:white; letter-spacing:0.2em;">${codigoPessoal}</p>
+  <p style="font-size:12px; color:rgba(255,255,255,0.7); margin-top:8px; line-height:1.6;">Guarde este código. Você precisará dele para informar o resultado do seu exame e contribuir com a pesquisa.</p>
+</div>
+
+<div class="disclaimer">
+```
+```
+codigo_pessoal: codigoPessoal,
+tipo: 'avaliacao_inicial',
+score_total: resultado.score
         <button class="btn btn-secondary" onclick="location.reload()">Fazer nova avaliação</button>
       </div>`;
     return;
   }
-
+const codigoPessoal = gerarCodigo();
+```
   const condutaMap = {
     low: {
       title: '✅ Mantenha o rastreamento em dia',
