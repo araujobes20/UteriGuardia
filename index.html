@@ -26,7 +26,6 @@
   .progress-fill { height: 100%; background: linear-gradient(90deg, var(--teal), var(--rose)); transition: width 0.5s cubic-bezier(0.4,0,0.2,1); border-radius: 0 4px 4px 0; }
 
   .app-wrap { max-width: 520px; margin: 0 auto; min-height: 100vh; display: flex; flex-direction: column; }
-
   .screen { display: none; flex-direction: column; min-height: 100vh; padding: 28px 20px 40px; animation: fadeUp 0.45s cubic-bezier(0.4,0,0.2,1) both; }
   .screen.active { display: flex; }
   @keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
@@ -51,7 +50,7 @@
 
   .checkbox-row { display:flex; align-items:flex-start; gap:12px; background:var(--teal-xlight); border-radius:var(--radius-sm); padding:16px; margin-bottom:16px; cursor:pointer; }
   .checkbox-row input[type="checkbox"] { width:20px; height:20px; cursor:pointer; accent-color:var(--teal); flex-shrink:0; margin-top:1px; }
-  .checkbox-row label { font-size:14px; font-weight:500; color:var(--gray-900); cursor:pointer; line-height:1.5; }
+  .checkbox-row span { font-size:14px; font-weight:500; color:var(--gray-900); line-height:1.5; }
 
   .section-header { margin-bottom:24px; padding-top:16px; }
   .section-badge { display:inline-flex; align-items:center; gap:6px; background:var(--teal-dark); color:var(--white); border-radius:20px; padding:4px 14px; font-size:12px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:12px; }
@@ -63,25 +62,25 @@
   .q-label { font-size:15px; font-weight:600; color:var(--gray-900); line-height:1.45; margin-bottom:4px; }
   .q-hint { font-size:12.5px; color:var(--gray-500); margin-bottom:14px; line-height:1.5; }
 
+  /* ── OPÇÕES DE RÁDIO ── */
   .options { display:flex; flex-direction:column; gap:8px; }
-  .option { display:flex; align-items:center; gap:12px; padding:13px 15px; border-radius:var(--radius-sm); border:1.5px solid var(--gray-300); cursor:pointer; transition:all 0.2s; background:var(--white); }
+  .option { display:flex; align-items:center; gap:12px; padding:13px 15px; border-radius:var(--radius-sm); border:1.5px solid var(--gray-300); cursor:pointer; transition:all 0.2s; background:var(--white); user-select:none; }
   .option:hover { border-color:var(--teal); background:var(--teal-xlight); }
   .option.selected { border-color:var(--teal); background:var(--teal-xlight); box-shadow:0 0 0 3px rgba(27,122,158,0.12); }
   .option.level1-flag.selected { border-color:var(--rose); background:var(--rose-light); box-shadow:0 0 0 3px rgba(192,67,94,0.12); }
-  .option input[type="radio"] { display:none; }
-  .radio-dot { width:18px; height:18px; border-radius:50%; border:2px solid var(--gray-300); flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:all 0.2s; }
+  .radio-dot { width:18px; height:18px; border-radius:50%; border:2px solid var(--gray-300); flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:all 0.2s; pointer-events:none; }
   .option.selected .radio-dot { border-color:var(--teal); background:var(--teal); }
   .option.selected .radio-dot::after { content:''; width:7px; height:7px; border-radius:50%; background:white; }
   .option.level1-flag.selected .radio-dot { border-color:var(--rose); background:var(--rose); }
-  .option-text { font-size:14px; color:var(--gray-900); line-height:1.4; flex:1; font-weight:400; }
+  .option-text { font-size:14px; color:var(--gray-900); line-height:1.4; flex:1; font-weight:400; pointer-events:none; }
 
-  .check-option { display:flex; align-items:flex-start; gap:12px; padding:13px 15px; border-radius:var(--radius-sm); border:1.5px solid var(--gray-300); cursor:pointer; transition:all 0.2s; background:var(--white); }
-  .check-option:hover { border-color:var(--teal); background:var(--teal-xlight); }
-  .check-option.selected { border-color:var(--teal); background:var(--teal-xlight); }
-  .check-option input[type="checkbox"] { display:none; }
-  .check-box { width:18px; height:18px; border-radius:4px; border:2px solid var(--gray-300); flex-shrink:0; margin-top:1px; display:flex; align-items:center; justify-content:center; transition:all 0.2s; }
-  .check-option.selected .check-box { border-color:var(--teal); background:var(--teal); }
-  .check-option.selected .check-box::after { content:'✓'; font-size:11px; color:white; font-weight:700; }
+  /* ── CHECKBOXES IMUNOSSUPRESSÃO — usa DIV para evitar duplo disparo ── */
+  .chk-option { display:flex; align-items:flex-start; gap:12px; padding:13px 15px; border-radius:var(--radius-sm); border:1.5px solid var(--gray-300); cursor:pointer; transition:all 0.2s; background:var(--white); user-select:none; }
+  .chk-option:hover { border-color:var(--teal); background:var(--teal-xlight); }
+  .chk-option.selected { border-color:var(--teal); background:var(--teal-xlight); }
+  .chk-dot { width:18px; height:18px; border-radius:4px; border:2px solid var(--gray-300); flex-shrink:0; margin-top:1px; display:flex; align-items:center; justify-content:center; transition:all 0.2s; pointer-events:none; }
+  .chk-option.selected .chk-dot { border-color:var(--teal); background:var(--teal); }
+  .chk-option.selected .chk-dot::after { content:'✓'; font-size:11px; color:white; font-weight:700; }
 
   .num-input { width:100%; padding:13px 15px; border-radius:var(--radius-sm); border:1.5px solid var(--gray-300); font-family:var(--font-body); font-size:15px; color:var(--gray-900); outline:none; transition:border-color 0.2s; background:var(--white); }
   .num-input:focus { border-color:var(--teal); box-shadow:0 0 0 3px rgba(27,122,158,0.12); }
@@ -93,7 +92,7 @@
 
   .btn { width:100%; padding:16px; border-radius:var(--radius-sm); border:none; font-family:var(--font-body); font-size:16px; font-weight:600; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; justify-content:center; gap:8px; letter-spacing:0.01em; }
   .btn-primary { background:linear-gradient(135deg,var(--teal-dark),var(--teal)); color:white; box-shadow:0 4px 16px rgba(11,79,108,0.30); }
-  .btn-primary:hover { transform:translateY(-1px); box-shadow:0 6px 24px rgba(11,79,108,0.38); }
+  .btn-primary:hover { transform:translateY(-1px); }
   .btn-primary:disabled { opacity:0.45; cursor:not-allowed; transform:none; }
   .btn-secondary { background:var(--white); color:var(--teal-dark); border:2px solid var(--teal-light); margin-bottom:10px; }
   .btn-secondary:hover { background:var(--teal-xlight); }
@@ -117,7 +116,6 @@
   .result-card h3 { font-family:var(--font-head); font-size:15px; font-weight:600; margin-bottom:10px; }
   .result-card ul { padding-left:18px; }
   .result-card li { font-size:14px; line-height:1.7; margin-bottom:4px; }
-
   .result-low    { background:var(--green-light);  color:var(--green); }
   .result-mod    { background:var(--yellow-light); color:var(--yellow); }
   .result-high   { background:var(--orange-light); color:var(--orange); }
@@ -140,12 +138,12 @@
   .ubs-card p { font-size:14px; color:var(--gray-700); line-height:1.6; }
   .ubs-card a { color:var(--teal); font-weight:600; text-decoration:none; }
 
-  .disclaimer { background:var(--gray-100); border-radius:var(--radius-sm); padding:14px; font-size:12.5px; color:var(--gray-500); line-height:1.6; margin-bottom:14px; text-align:center; }
-
   .codigo-box { background:var(--teal-dark); border-radius:var(--radius); padding:20px; margin-bottom:14px; text-align:center; }
   .codigo-label { font-size:12px; color:rgba(255,255,255,0.7); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.08em; }
   .codigo-valor { font-family:var(--font-head); font-size:32px; font-weight:700; color:white; letter-spacing:0.2em; }
   .codigo-hint { font-size:12px; color:rgba(255,255,255,0.7); margin-top:8px; line-height:1.6; }
+
+  .disclaimer { background:var(--gray-100); border-radius:var(--radius-sm); padding:14px; font-size:12.5px; color:var(--gray-500); line-height:1.6; margin-bottom:14px; text-align:center; }
 
   .loading-screen { display:none; position:fixed; inset:0; background:rgba(255,255,255,0.9); z-index:200; flex-direction:column; align-items:center; justify-content:center; gap:16px; }
   .loading-screen.active { display:flex; }
@@ -159,12 +157,17 @@
   .tcle-box::-webkit-scrollbar { width:4px; }
   .tcle-box::-webkit-scrollbar-track { background:var(--gray-100); }
   .tcle-box::-webkit-scrollbar-thumb { background:var(--teal-light); border-radius:2px; }
+
+  /* iframe oculto para envio sem bloqueio de CORS */
+  #submit-frame { display:none; width:0; height:0; border:none; }
 </style>
 </head>
 <body>
 
-<div class="progress-wrap"><div class="progress-fill" id="progressBar" style="width:0%"></div></div>
+<!-- iframe oculto que recebe o submit do formulário -->
+<iframe id="submit-frame" name="submit-frame"></iframe>
 
+<div class="progress-wrap"><div class="progress-fill" id="progressBar" style="width:0%"></div></div>
 <div class="loading-screen" id="loadingScreen">
   <div class="spinner"></div>
   <p class="loading-text">Calculando seu resultado…</p>
@@ -194,7 +197,7 @@
       <div class="info-tags">
         <span class="info-tag">🔒 100% anônimo</span>
         <span class="info-tag">⏱ 5 minutos</span>
-        </div>
+      </div>
     </div>
     <button class="btn btn-primary" onclick="goTo('screen-tcle')">Começar →</button>
     <button class="btn btn-secondary" onclick="goTo('screen-followup')" style="margin-top:10px;">
@@ -227,10 +230,10 @@
         <li>Canal de apoio emocional: CVV — ligue 188 (gratuito, 24h)</li>
       </ul>
     </div>
-    <label class="checkbox-row">
-      <input type="checkbox" id="tcleCheck" onchange="updateTcleBtn()"/>
-      <label for="tcleCheck">Li e compreendi o Termo de Consentimento e aceito participar voluntariamente desta pesquisa.</label>
-    </label>
+    <div class="checkbox-row" onclick="document.getElementById('tcleCheck').click()">
+      <input type="checkbox" id="tcleCheck" onchange="updateTcleBtn()" onclick="event.stopPropagation()"/>
+      <span>Li e compreendi o Termo de Consentimento e aceito participar voluntariamente desta pesquisa.</span>
+    </div>
     <button class="btn btn-primary" id="tcleBtn" onclick="goTo('screen-demografico')" disabled>Aceitar e Continuar →</button>
     <button class="btn btn-danger" onclick="goTo('screen-welcome')">Não aceito — Voltar</button>
   </div>
@@ -251,18 +254,9 @@
     <div class="q-card">
       <div class="q-label">Qual é o seu nível de escolaridade?</div>
       <div class="options" id="q-escolaridade">
-        <label class="option" onclick="selectOption(this,'q-escolaridade')">
-          <input type="radio" name="escolaridade" value="fundamental"/>
-          <span class="radio-dot"></span><span class="option-text">Ensino Fundamental (incompleto ou completo)</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-escolaridade')">
-          <input type="radio" name="escolaridade" value="medio"/>
-          <span class="radio-dot"></span><span class="option-text">Ensino Médio (incompleto ou completo)</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-escolaridade')">
-          <input type="radio" name="escolaridade" value="superior"/>
-          <span class="radio-dot"></span><span class="option-text">Ensino Superior ou mais</span>
-        </label>
+        <div class="option" onclick="selectOption(this,'q-escolaridade','fundamental')"><span class="radio-dot"></span><span class="option-text">Ensino Fundamental (incompleto ou completo)</span></div>
+        <div class="option" onclick="selectOption(this,'q-escolaridade','medio')"><span class="radio-dot"></span><span class="option-text">Ensino Médio (incompleto ou completo)</span></div>
+        <div class="option" onclick="selectOption(this,'q-escolaridade','superior')"><span class="radio-dot"></span><span class="option-text">Ensino Superior ou mais</span></div>
       </div>
     </div>
     <div class="q-card">
@@ -282,14 +276,14 @@
     </div>
     <div class="q-card">
       <div class="q-label">Primeiras 2 letras do nome da sua mãe</div>
-      <div class="q-hint">Usado apenas para gerar seu código anônimo de acompanhamento. Ex: se o nome é "Maria", digite MA</div>
+      <div class="q-hint">Usado apenas para gerar seu código anônimo de acompanhamento. Ex: "Maria" → MA</div>
       <input type="text" class="num-input" id="q-mae" placeholder="Ex: MA" maxlength="2"
              oninput="this.value=this.value.toUpperCase().replace(/[^A-Z]/g,''); updateNavDemo()"
              style="text-transform:uppercase; letter-spacing:0.2em; font-weight:600;"/>
     </div>
     <div class="q-card">
       <div class="q-label">Dia e mês do seu nascimento</div>
-      <div class="q-hint">Ex: nasceu dia 14 de março → dia: 14, mês: 03</div>
+      <div class="q-hint">Ex: dia 14 de março → dia: 14, mês: 03</div>
       <div style="display:flex; gap:12px;">
         <div style="flex:1;">
           <div style="font-size:12px; color:var(--gray-500); margin-bottom:6px;">Dia</div>
@@ -319,34 +313,13 @@
       <div class="q-label">Qual é a sua situação em relação ao teste de DNA-HPV?</div>
       <div class="q-hint">Escolha a opção que melhor descreve sua situação atual</div>
       <div class="options" id="q-hpv">
-        <label class="option" onclick="selectOption(this,'q-hpv'); checkLevel1()">
-          <input type="radio" name="hpv" value="0_negativo_recente"/>
-          <span class="radio-dot"></span><span class="option-text">Realizei o teste e o resultado foi <strong>negativo há menos de 5 anos</strong></span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-hpv'); checkLevel1()">
-          <input type="radio" name="hpv" value="15_negativo_antigo"/>
-          <span class="radio-dot"></span><span class="option-text">Realizei o teste e o resultado foi <strong>negativo há mais de 5 anos</strong></span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-hpv'); checkLevel1()">
-          <input type="radio" name="hpv" value="15_nunca"/>
-          <span class="radio-dot"></span><span class="option-text"><strong>Nunca realizei</strong> o teste de DNA-HPV</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-hpv'); checkLevel1()">
-          <input type="radio" name="hpv" value="25_oncogenico_normal"/>
-          <span class="radio-dot"></span><span class="option-text">Resultado positivo para <strong>HPV oncogênico</strong> (não é HPV 16 ou 18), com citologia <strong>normal</strong></span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-hpv'); checkLevel1()">
-          <input type="radio" name="hpv" value="40_oncogenico_alterada"/>
-          <span class="radio-dot"></span><span class="option-text">Resultado positivo para <strong>HPV oncogênico</strong> (não é HPV 16 ou 18), com citologia <strong>alterada (ASC-US ou LSIL)</strong></span>
-        </label>
-        <label class="option level1-flag" onclick="selectOption(this,'q-hpv'); checkLevel1()">
-          <input type="radio" name="hpv" value="NIVEL1"/>
-          <span class="radio-dot"></span><span class="option-text">Resultado positivo para <strong>HPV 16 e/ou HPV 18</strong> ⚠️</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-hpv'); checkLevel1()">
-          <input type="radio" name="hpv" value="0_nao_sei"/>
-          <span class="radio-dot"></span><span class="option-text">Realizei o teste mas <strong>não sei o resultado</strong></span>
-        </label>
+        <div class="option" onclick="selectOption(this,'q-hpv','0_negativo_recente'); checkLevel1()"><span class="radio-dot"></span><span class="option-text">Realizei o teste e o resultado foi <strong>negativo há menos de 5 anos</strong></span></div>
+        <div class="option" onclick="selectOption(this,'q-hpv','15_negativo_antigo'); checkLevel1()"><span class="radio-dot"></span><span class="option-text">Realizei o teste e o resultado foi <strong>negativo há mais de 5 anos</strong></span></div>
+        <div class="option" onclick="selectOption(this,'q-hpv','15_nunca'); checkLevel1()"><span class="radio-dot"></span><span class="option-text"><strong>Nunca realizei</strong> o teste de DNA-HPV</span></div>
+        <div class="option" onclick="selectOption(this,'q-hpv','25_oncogenico_normal'); checkLevel1()"><span class="radio-dot"></span><span class="option-text">Positivo para <strong>HPV oncogênico</strong> (não é HPV 16 ou 18), citologia <strong>normal</strong></span></div>
+        <div class="option" onclick="selectOption(this,'q-hpv','40_oncogenico_alterada'); checkLevel1()"><span class="radio-dot"></span><span class="option-text">Positivo para <strong>HPV oncogênico</strong> (não é HPV 16 ou 18), citologia <strong>alterada (ASC-US ou LSIL)</strong></span></div>
+        <div class="option level1-flag" onclick="selectOption(this,'q-hpv','NIVEL1'); checkLevel1()"><span class="radio-dot"></span><span class="option-text">Positivo para <strong>HPV 16 e/ou HPV 18</strong> ⚠️</span></div>
+        <div class="option" onclick="selectOption(this,'q-hpv','0_nao_sei'); checkLevel1()"><span class="radio-dot"></span><span class="option-text">Realizei o teste mas <strong>não sei o resultado</strong></span></div>
       </div>
     </div>
     <div id="alert-nivel1-hpv" style="display:none;">
@@ -374,30 +347,12 @@
       <div class="q-label">Qual é a sua situação em relação ao exame de Papanicolaou?</div>
       <div class="q-hint">Escolha apenas UMA opção</div>
       <div class="options" id="q-cito">
-        <label class="option" onclick="selectOption(this,'q-cito'); checkLevel1B()">
-          <input type="radio" name="cito" value="0_normal_recente"/>
-          <span class="radio-dot"></span><span class="option-text">Realizei e o resultado foi <strong>normal há 3 anos ou menos</strong></span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-cito'); checkLevel1B()">
-          <input type="radio" name="cito" value="15_atrasado"/>
-          <span class="radio-dot"></span><span class="option-text">Realizei, mas o <strong>último exame foi há mais de 3 anos</strong></span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-cito'); checkLevel1B()">
-          <input type="radio" name="cito" value="25_nunca"/>
-          <span class="radio-dot"></span><span class="option-text"><strong>Nunca realizei</strong> o exame de Papanicolaou</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-cito'); checkLevel1B()">
-          <input type="radio" name="cito" value="20_ascus_lsil"/>
-          <span class="radio-dot"></span><span class="option-text">Tive resultado <strong>alterado (ASC-US ou LSIL)</strong> e não fiz seguimento adequado</span>
-        </label>
-        <label class="option level1-flag" onclick="selectOption(this,'q-cito'); checkLevel1B()">
-          <input type="radio" name="cito" value="NIVEL1"/>
-          <span class="radio-dot"></span><span class="option-text">Tive resultado com <strong>HSIL ou ASC-H</strong> sem seguimento ⚠️</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-cito'); checkLevel1B()">
-          <input type="radio" name="cito" value="0_nao_sei"/>
-          <span class="radio-dot"></span><span class="option-text">Realizei mas <strong>não lembro o resultado</strong></span>
-        </label>
+        <div class="option" onclick="selectOption(this,'q-cito','0_normal_recente'); checkLevel1B()"><span class="radio-dot"></span><span class="option-text">Realizei e o resultado foi <strong>normal há 3 anos ou menos</strong></span></div>
+        <div class="option" onclick="selectOption(this,'q-cito','15_atrasado'); checkLevel1B()"><span class="radio-dot"></span><span class="option-text">Realizei, mas o <strong>último exame foi há mais de 3 anos</strong></span></div>
+        <div class="option" onclick="selectOption(this,'q-cito','25_nunca'); checkLevel1B()"><span class="radio-dot"></span><span class="option-text"><strong>Nunca realizei</strong> o exame de Papanicolaou</span></div>
+        <div class="option" onclick="selectOption(this,'q-cito','20_ascus_lsil'); checkLevel1B()"><span class="radio-dot"></span><span class="option-text">Tive resultado <strong>alterado (ASC-US ou LSIL)</strong> e não fiz seguimento adequado</span></div>
+        <div class="option level1-flag" onclick="selectOption(this,'q-cito','NIVEL1'); checkLevel1B()"><span class="radio-dot"></span><span class="option-text">Tive resultado com <strong>HSIL ou ASC-H</strong> sem seguimento ⚠️</span></div>
+        <div class="option" onclick="selectOption(this,'q-cito','0_nao_sei'); checkLevel1B()"><span class="radio-dot"></span><span class="option-text">Realizei mas <strong>não lembro o resultado</strong></span></div>
       </div>
     </div>
     <div id="alert-nivel1-cito" style="display:none;">
@@ -424,26 +379,11 @@
     <div class="q-card">
       <div class="q-label">Qual é a sua situação vacinal contra o HPV?</div>
       <div class="options" id="q-vacina">
-        <label class="option" onclick="selectOption(this,'q-vacina'); updateNavC()">
-          <input type="radio" name="vacina" value="-5_completa_antes15"/>
-          <span class="radio-dot"></span><span class="option-text">Recebi o <strong>esquema completo antes dos 15 anos</strong> (máxima proteção)</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-vacina'); updateNavC()">
-          <input type="radio" name="vacina" value="0_completa_depois"/>
-          <span class="radio-dot"></span><span class="option-text">Recebi o esquema completo, mas <strong>depois dos 15 anos</strong></span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-vacina'); updateNavC()">
-          <input type="radio" name="vacina" value="0_incompleto"/>
-          <span class="radio-dot"></span><span class="option-text">Recebi <strong>parte das doses</strong> (esquema incompleto)</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-vacina'); updateNavC()">
-          <input type="radio" name="vacina" value="5_nao_vacinada"/>
-          <span class="radio-dot"></span><span class="option-text"><strong>Não me vacinei</strong> contra o HPV</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-vacina'); updateNavC()">
-          <input type="radio" name="vacina" value="5_nao_sei"/>
-          <span class="radio-dot"></span><span class="option-text"><strong>Não sei</strong> se tomei a vacina</span>
-        </label>
+        <div class="option" onclick="selectOption(this,'q-vacina','-5_completa_antes15'); updateNavC()"><span class="radio-dot"></span><span class="option-text">Recebi o <strong>esquema completo antes dos 15 anos</strong> (máxima proteção)</span></div>
+        <div class="option" onclick="selectOption(this,'q-vacina','0_completa_depois'); updateNavC()"><span class="radio-dot"></span><span class="option-text">Recebi o esquema completo, mas <strong>depois dos 15 anos</strong></span></div>
+        <div class="option" onclick="selectOption(this,'q-vacina','0_incompleto'); updateNavC()"><span class="radio-dot"></span><span class="option-text">Recebi <strong>parte das doses</strong> (esquema incompleto)</span></div>
+        <div class="option" onclick="selectOption(this,'q-vacina','5_nao_vacinada'); updateNavC()"><span class="radio-dot"></span><span class="option-text"><strong>Não me vacinei</strong> contra o HPV</span></div>
+        <div class="option" onclick="selectOption(this,'q-vacina','5_nao_sei'); updateNavC()"><span class="radio-dot"></span><span class="option-text"><strong>Não sei</strong> se tomei a vacina</span></div>
       </div>
     </div>
     <div class="nav-row">
@@ -460,86 +400,57 @@
       <h2 class="section-title">Fatores de saúde e história pessoal</h2>
       <p class="section-desc">Selecione <strong>todos que se aplicam</strong> ao seu caso.</p>
     </div>
-    <div class="q-card">
+
+    <!-- CORREÇÃO: usa div.chk-option em vez de label para evitar duplo disparo -->
+    <div class="q-card" id="card-imuno">
       <div class="q-label">Você tem alguma das condições abaixo?</div>
       <div class="q-hint">Selecione todas que se aplicam</div>
       <div style="display:flex; flex-direction:column; gap:8px;" id="q-imuno">
-        <label class="check-option" onclick="toggleCheck(this,'imuno_hiv')">
-          <input type="checkbox" value="imuno_hiv"/><span class="check-box"></span><span class="option-text">HIV positivo</span>
-        </label>
-        <label class="check-option" onclick="toggleCheck(this,'imuno_transplante')">
-          <input type="checkbox" value="imuno_transplante"/><span class="check-box"></span><span class="option-text">Transplantada de órgão sólido ou medula</span>
-        </label>
-        <label class="check-option" onclick="toggleCheck(this,'imuno_cortico')">
-          <input type="checkbox" value="imuno_cortico"/><span class="check-box"></span><span class="option-text">Uso de corticóide por mais de 3 meses</span>
-        </label>
-        <label class="check-option" onclick="toggleCheck(this,'imuno_quimio')">
-          <input type="checkbox" value="imuno_quimio"/><span class="check-box"></span><span class="option-text">Quimioterapia ativa</span>
-        </label>
-        <label class="check-option" onclick="toggleCheck(this,'imuno_nenhum')">
-          <input type="checkbox" value="imuno_nenhum"/><span class="check-box"></span><span class="option-text"><strong>Nenhuma das anteriores</strong></span>
-        </label>
+        <div class="chk-option" onclick="toggleImuno(this,'imuno_hiv')"><span class="chk-dot"></span><span class="option-text">HIV positivo</span></div>
+        <div class="chk-option" onclick="toggleImuno(this,'imuno_transplante')"><span class="chk-dot"></span><span class="option-text">Transplantada de órgão sólido ou medula</span></div>
+        <div class="chk-option" onclick="toggleImuno(this,'imuno_cortico')"><span class="chk-dot"></span><span class="option-text">Uso de corticóide por mais de 3 meses</span></div>
+        <div class="chk-option" onclick="toggleImuno(this,'imuno_quimio')"><span class="chk-dot"></span><span class="option-text">Quimioterapia ativa</span></div>
+        <div class="chk-option" id="chk-nenhum" onclick="toggleImuno(this,'imuno_nenhum')"><span class="chk-dot"></span><span class="option-text"><strong>Nenhuma das anteriores</strong></span></div>
       </div>
     </div>
+
     <div class="q-card">
       <div class="q-label">Qual é a sua situação em relação ao tabagismo?</div>
       <div class="options" id="q-tabaco">
-        <label class="option" onclick="selectOption(this,'q-tabaco')">
-          <input type="radio" name="tabaco" value="10_fumante"/><span class="radio-dot"></span><span class="option-text">Sou fumante atualmente</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-tabaco')">
-          <input type="radio" name="tabaco" value="5_ex_recente"/><span class="radio-dot"></span><span class="option-text">Parei de fumar há <strong>menos de 5 anos</strong></span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-tabaco')">
-          <input type="radio" name="tabaco" value="0_ex_antigo"/><span class="radio-dot"></span><span class="option-text">Parei de fumar há <strong>5 anos ou mais</strong></span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-tabaco')">
-          <input type="radio" name="tabaco" value="0_nao_fuma"/><span class="radio-dot"></span><span class="option-text">Nunca fumei</span>
-        </label>
+        <div class="option" onclick="selectOption(this,'q-tabaco','10_fumante')"><span class="radio-dot"></span><span class="option-text">Sou fumante atualmente</span></div>
+        <div class="option" onclick="selectOption(this,'q-tabaco','5_ex_recente')"><span class="radio-dot"></span><span class="option-text">Parei de fumar há <strong>menos de 5 anos</strong></span></div>
+        <div class="option" onclick="selectOption(this,'q-tabaco','0_ex_antigo')"><span class="radio-dot"></span><span class="option-text">Parei de fumar há <strong>5 anos ou mais</strong></span></div>
+        <div class="option" onclick="selectOption(this,'q-tabaco','0_nao_fuma')"><span class="radio-dot"></span><span class="option-text">Nunca fumei</span></div>
       </div>
     </div>
+
     <div class="q-card">
       <div class="q-label">Você usou anticoncepcional oral (pílula) por 5 anos ou mais de forma contínua?</div>
       <div class="options" id="q-aco">
-        <label class="option" onclick="selectOption(this,'q-aco')">
-          <input type="radio" name="aco" value="8_sim"/><span class="radio-dot"></span><span class="option-text">Sim, usei por 5 anos ou mais</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-aco')">
-          <input type="radio" name="aco" value="0_nao"/><span class="radio-dot"></span><span class="option-text">Não (nunca usei ou usei por menos de 5 anos)</span>
-        </label>
+        <div class="option" onclick="selectOption(this,'q-aco','8_sim')"><span class="radio-dot"></span><span class="option-text">Sim, usei por 5 anos ou mais</span></div>
+        <div class="option" onclick="selectOption(this,'q-aco','0_nao')"><span class="radio-dot"></span><span class="option-text">Não (nunca usei ou usei por menos de 5 anos)</span></div>
       </div>
     </div>
+
     <div class="q-card">
       <div class="q-label">Quantos partos vaginais você teve?</div>
       <div class="options" id="q-paridade">
-        <label class="option" onclick="selectOption(this,'q-paridade')">
-          <input type="radio" name="paridade" value="5_tres_mais"/><span class="radio-dot"></span><span class="option-text">3 ou mais partos vaginais</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-paridade')">
-          <input type="radio" name="paridade" value="0_menos_tres"/><span class="radio-dot"></span><span class="option-text">Menos de 3 partos vaginais</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-paridade')">
-          <input type="radio" name="paridade" value="0_nenhum"/><span class="radio-dot"></span><span class="option-text">Nenhum parto vaginal (nulípara ou somente cesárea)</span>
-        </label>
+        <div class="option" onclick="selectOption(this,'q-paridade','5_tres_mais')"><span class="radio-dot"></span><span class="option-text">3 ou mais partos vaginais</span></div>
+        <div class="option" onclick="selectOption(this,'q-paridade','0_menos_tres')"><span class="radio-dot"></span><span class="option-text">Menos de 3 partos vaginais</span></div>
+        <div class="option" onclick="selectOption(this,'q-paridade','0_nenhum')"><span class="radio-dot"></span><span class="option-text">Nenhum parto vaginal (nulípara ou somente cesárea)</span></div>
       </div>
     </div>
+
     <div class="q-card">
       <div class="q-label">Você iniciou sua vida sexual antes dos 16 anos?</div>
       <div class="options" id="q-inicio">
-        <label class="option" onclick="selectOption(this,'q-inicio')">
-          <input type="radio" name="inicio" value="5_antes16"/><span class="radio-dot"></span><span class="option-text">Sim, antes dos 16 anos</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-inicio')">
-          <input type="radio" name="inicio" value="0_depois16"/><span class="radio-dot"></span><span class="option-text">Não, aos 16 anos ou depois</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-inicio')">
-          <input type="radio" name="inicio" value="0_nao_iniciou"/><span class="radio-dot"></span><span class="option-text">Ainda não iniciei minha vida sexual</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'q-inicio')">
-          <input type="radio" name="inicio" value="0_prefiro"/><span class="radio-dot"></span><span class="option-text">Prefiro não informar</span>
-        </label>
+        <div class="option" onclick="selectOption(this,'q-inicio','5_antes16')"><span class="radio-dot"></span><span class="option-text">Sim, antes dos 16 anos</span></div>
+        <div class="option" onclick="selectOption(this,'q-inicio','0_depois16')"><span class="radio-dot"></span><span class="option-text">Não, aos 16 anos ou depois</span></div>
+        <div class="option" onclick="selectOption(this,'q-inicio','0_nao_iniciou')"><span class="radio-dot"></span><span class="option-text">Ainda não iniciei minha vida sexual</span></div>
+        <div class="option" onclick="selectOption(this,'q-inicio','0_prefiro')"><span class="radio-dot"></span><span class="option-text">Prefiro não informar</span></div>
       </div>
     </div>
+
     <div class="nav-row">
       <button class="btn-back" onclick="goTo('screen-blocoC')">←</button>
       <button class="btn-next" id="btn-d-next" onclick="calcularScore()" disabled>Ver meu resultado →</button>
@@ -569,67 +480,33 @@
     <div class="q-card">
       <div class="q-label">Você realizou o exame recomendado?</div>
       <div class="options" id="fu-realizou">
-        <label class="option" onclick="selectOption(this,'fu-realizou'); checkFollowup()">
-          <input type="radio" name="fu_realizou" value="sim"/><span class="radio-dot"></span><span class="option-text">Sim, realizei o exame</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'fu-realizou'); checkFollowup()">
-          <input type="radio" name="fu_realizou" value="nao_ainda"/><span class="radio-dot"></span><span class="option-text">Ainda não realizei, mas pretendo</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'fu-realizou'); checkFollowup()">
-          <input type="radio" name="fu_realizou" value="nao_barreiras"/><span class="radio-dot"></span><span class="option-text">Não realizei — encontrei dificuldades</span>
-        </label>
+        <div class="option" onclick="selectOption(this,'fu-realizou','sim'); checkFollowup()"><span class="radio-dot"></span><span class="option-text">Sim, realizei o exame</span></div>
+        <div class="option" onclick="selectOption(this,'fu-realizou','nao_ainda'); checkFollowup()"><span class="radio-dot"></span><span class="option-text">Ainda não realizei, mas pretendo</span></div>
+        <div class="option" onclick="selectOption(this,'fu-realizou','nao_barreiras'); checkFollowup()"><span class="radio-dot"></span><span class="option-text">Não realizei — encontrei dificuldades</span></div>
       </div>
     </div>
     <div class="q-card" id="fu-resultado-card" style="display:none;">
       <div class="q-label">Qual foi o resultado do exame?</div>
       <div class="options" id="fu-resultado">
-        <label class="option" onclick="selectOption(this,'fu-resultado')">
-          <input type="radio" name="fu_resultado" value="dna_hpv_negativo"/><span class="radio-dot"></span><span class="option-text">DNA-HPV negativo</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'fu-resultado')">
-          <input type="radio" name="fu_resultado" value="dna_hpv_positivo_nao1618"/><span class="radio-dot"></span><span class="option-text">DNA-HPV positivo (não é HPV 16/18)</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'fu-resultado')">
-          <input type="radio" name="fu_resultado" value="dna_hpv_1618"/><span class="radio-dot"></span><span class="option-text">DNA-HPV positivo para HPV 16 e/ou 18</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'fu-resultado')">
-          <input type="radio" name="fu_resultado" value="citologia_normal"/><span class="radio-dot"></span><span class="option-text">Citologia (Papanicolaou) normal</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'fu-resultado')">
-          <input type="radio" name="fu_resultado" value="citologia_alterada"/><span class="radio-dot"></span><span class="option-text">Citologia alterada (ASC-US, LSIL, HSIL)</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'fu-resultado')">
-          <input type="radio" name="fu_resultado" value="colposcopia_normal"/><span class="radio-dot"></span><span class="option-text">Colposcopia com biópsia normal / NIC 1</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'fu-resultado')">
-          <input type="radio" name="fu_resultado" value="nic2_3"/><span class="radio-dot"></span><span class="option-text">NIC 2 ou NIC 3 confirmado</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'fu-resultado')">
-          <input type="radio" name="fu_resultado" value="aguardando"/><span class="radio-dot"></span><span class="option-text">Realizei mas ainda aguardo o resultado</span>
-        </label>
+        <div class="option" onclick="selectOption(this,'fu-resultado','dna_hpv_negativo')"><span class="radio-dot"></span><span class="option-text">DNA-HPV negativo</span></div>
+        <div class="option" onclick="selectOption(this,'fu-resultado','dna_hpv_positivo_nao1618')"><span class="radio-dot"></span><span class="option-text">DNA-HPV positivo (não é HPV 16/18)</span></div>
+        <div class="option" onclick="selectOption(this,'fu-resultado','dna_hpv_1618')"><span class="radio-dot"></span><span class="option-text">DNA-HPV positivo para HPV 16 e/ou 18</span></div>
+        <div class="option" onclick="selectOption(this,'fu-resultado','citologia_normal')"><span class="radio-dot"></span><span class="option-text">Citologia (Papanicolaou) normal</span></div>
+        <div class="option" onclick="selectOption(this,'fu-resultado','citologia_alterada')"><span class="radio-dot"></span><span class="option-text">Citologia alterada (ASC-US, LSIL, HSIL)</span></div>
+        <div class="option" onclick="selectOption(this,'fu-resultado','colposcopia_normal')"><span class="radio-dot"></span><span class="option-text">Colposcopia com biópsia normal / NIC 1</span></div>
+        <div class="option" onclick="selectOption(this,'fu-resultado','nic2_3')"><span class="radio-dot"></span><span class="option-text">NIC 2 ou NIC 3 confirmado</span></div>
+        <div class="option" onclick="selectOption(this,'fu-resultado','aguardando')"><span class="radio-dot"></span><span class="option-text">Realizei mas ainda aguardo o resultado</span></div>
       </div>
     </div>
     <div class="q-card" id="fu-barreiras-card" style="display:none;">
       <div class="q-label">Qual foi a principal dificuldade? (opcional)</div>
       <div class="options" id="fu-barreira">
-        <label class="option" onclick="selectOption(this,'fu-barreira')">
-          <input type="radio" name="fu_barreira" value="fila_espera"/><span class="radio-dot"></span><span class="option-text">Fila de espera muito longa</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'fu-barreira')">
-          <input type="radio" name="fu_barreira" value="falta_tempo"/><span class="radio-dot"></span><span class="option-text">Falta de tempo / trabalho</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'fu-barreira')">
-          <input type="radio" name="fu_barreira" value="acesso_ubs"/><span class="radio-dot"></span><span class="option-text">Dificuldade de acesso à UBS</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'fu-barreira')">
-          <input type="radio" name="fu_barreira" value="medo"/><span class="radio-dot"></span><span class="option-text">Medo ou desconforto com o exame</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'fu-barreira')">
-          <input type="radio" name="fu_barreira" value="nao_soube"/><span class="radio-dot"></span><span class="option-text">Não sabia onde fazer</span>
-        </label>
-        <label class="option" onclick="selectOption(this,'fu-barreira')">
-          <input type="radio" name="fu_barreira" value="outra"/><span class="radio-dot"></span><span class="option-text">Outro motivo</span>
-        </label>
+        <div class="option" onclick="selectOption(this,'fu-barreira','fila_espera')"><span class="radio-dot"></span><span class="option-text">Fila de espera muito longa</span></div>
+        <div class="option" onclick="selectOption(this,'fu-barreira','falta_tempo')"><span class="radio-dot"></span><span class="option-text">Falta de tempo / trabalho</span></div>
+        <div class="option" onclick="selectOption(this,'fu-barreira','acesso_ubs')"><span class="radio-dot"></span><span class="option-text">Dificuldade de acesso à UBS</span></div>
+        <div class="option" onclick="selectOption(this,'fu-barreira','medo')"><span class="radio-dot"></span><span class="option-text">Medo ou desconforto com o exame</span></div>
+        <div class="option" onclick="selectOption(this,'fu-barreira','nao_soube')"><span class="radio-dot"></span><span class="option-text">Não sabia onde fazer</span></div>
+        <div class="option" onclick="selectOption(this,'fu-barreira','outra')"><span class="radio-dot"></span><span class="option-text">Outro motivo</span></div>
       </div>
     </div>
     <div class="nav-row">
@@ -657,22 +534,23 @@
 </div><!-- /app-wrap -->
 
 <script>
-// ─── CONFIGURAÇÃO ────────────────────────────────────────────
+// ─── CONFIGURAÇÃO ─────────────────────────────────────────────────────────────
 const SHEETS_URL = "https://script.google.com/macros/s/AKfycbzVOxS6patai3CkUKKlZA8OE3iQTtssjj__gQhTrh-NFZzXVX8ICQdB9AC_GxBaDd0vHQ/exec";
 
-// ─── ESTADO GLOBAL ───────────────────────────────────────────
-let nivel1 = false;
-let nivel1Motivo = "";
-const checkedImuno = new Set();
+// ─── ESTADO ───────────────────────────────────────────────────────────────────
+// Armazena os valores selecionados de cada grupo
+const respostas = {};
+// Armazena as condições de imunossupressão (multi-seleção)
+const imunoSet = new Set();
 
 const PROGRESS = {
-  'screen-welcome':0,'screen-tcle':8,'screen-demografico':22,
-  'screen-blocoA':40,'screen-blocoB':58,'screen-blocoC':72,
-  'screen-blocoD':88,'screen-resultado':100,
-  'screen-followup':0,'screen-fu-confirmacao':100
+  'screen-welcome':0, 'screen-tcle':8, 'screen-demografico':22,
+  'screen-blocoA':40, 'screen-blocoB':58, 'screen-blocoC':72,
+  'screen-blocoD':88, 'screen-resultado':100,
+  'screen-followup':10, 'screen-fu-confirmacao':100
 };
 
-// ─── NAVEGAÇÃO ───────────────────────────────────────────────
+// ─── NAVEGAÇÃO ────────────────────────────────────────────────────────────────
 function goTo(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
@@ -680,153 +558,122 @@ function goTo(id) {
   document.getElementById('progressBar').style.width = (PROGRESS[id] || 0) + '%';
 }
 
-// ─── TCLE ────────────────────────────────────────────────────
+// ─── TCLE ─────────────────────────────────────────────────────────────────────
 function updateTcleBtn() {
   document.getElementById('tcleBtn').disabled = !document.getElementById('tcleCheck').checked;
 }
 
-// ─── SELEÇÃO DE OPÇÕES ───────────────────────────────────────
-function selectOption(el, groupId) {
+// ─── SELEÇÃO DE OPÇÕES (radio) ────────────────────────────────────────────────
+// Agora recebe o valor como parâmetro — sem depender de input hidden dentro do div
+function selectOption(el, groupId, valor) {
   document.getElementById(groupId).querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
   el.classList.add('selected');
-  el.querySelector('input').checked = true;
   el.closest('.q-card')?.classList.add('answered');
+  respostas[groupId] = valor;
   updateNavButtons();
 }
 
-function toggleCheck(el, val) {
-  // Se clicar em "Nenhuma das anteriores"
+function getVal(groupId) {
+  return respostas[groupId] || '';
+}
+
+// ─── CHECKBOXES IMUNOSSUPRESSÃO ───────────────────────────────────────────────
+// Usa DIV (não label) — sem duplo disparo
+function toggleImuno(el, val) {
   if (val === 'imuno_nenhum') {
-    checkedImuno.clear();
-    document.querySelectorAll('#q-imuno .check-option').forEach(o => {
-      o.classList.remove('selected');
-      const input = o.querySelector('input');
-      if (input) input.checked = false;
-    });
+    imunoSet.clear();
+    document.querySelectorAll('#q-imuno .chk-option').forEach(o => o.classList.remove('selected'));
     el.classList.add('selected');
-    const input = el.querySelector('input');
-    if (input) input.checked = true;
-    checkedImuno.add('imuno_nenhum');
-  } 
-  // Se clicar em qualquer outra opção (HIV, Quimioterapia, etc)
-  else {
-    // Remove a seleção do "Nenhuma das anteriores" se ela estiver ativa
-    checkedImuno.delete('imuno_nenhum');
-    const nenhum = document.querySelector('#q-imuno input[value="imuno_nenhum"]')?.closest('.check-option');
-    if (nenhum) {
-      nenhum.classList.remove('selected');
-      const nInput = nenhum.querySelector('input');
-      if (nInput) nInput.checked = false;
-    }
-
-    if (checkedImuno.has(val)) {
-      checkedImuno.delete(val);
-      el.classList.remove('selected');
-      const input = el.querySelector('input');
-      if (input) input.checked = false;
-    } else {
-      checkedImuno.add(val);
-      el.classList.add('selected');
-      const input = el.querySelector('input');
-      if (input) input.checked = true;
-    }
-  }
-  
-  // Marca o card como respondido se houver algo selecionado
-  if (checkedImuno.size > 0) {
-    el.closest('.q-card')?.classList.add('answered');
+    imunoSet.add('imuno_nenhum');
   } else {
-    el.closest('.q-card')?.classList.remove('answered');
+    // Remove "nenhuma" se estava marcada
+    imunoSet.delete('imuno_nenhum');
+    document.getElementById('chk-nenhum').classList.remove('selected');
+    // Toggle desta opção
+    if (imunoSet.has(val)) {
+      imunoSet.delete(val);
+      el.classList.remove('selected');
+    } else {
+      imunoSet.add(val);
+      el.classList.add('selected');
+    }
   }
-  
+  // Marca o card como respondido
+  document.getElementById('card-imuno').classList.toggle('answered', imunoSet.size > 0);
   updateNavButtons();
 }
 
-// ─── NÍVEL 1 ─────────────────────────────────────────────────
+// ─── NÍVEL 1 ──────────────────────────────────────────────────────────────────
 function checkLevel1() {
-  const val = document.querySelector('#q-hpv .option.selected input')?.value || '';
+  const val = getVal('q-hpv');
   document.getElementById('alert-nivel1-hpv').style.display = val === 'NIVEL1' ? 'block' : 'none';
-  if (val === 'NIVEL1') { nivel1 = true; nivel1Motivo = 'HPV 16/18 positivo'; }
-  else { nivel1 = false; }
   updateNavButtons();
 }
 
 function checkLevel1B() {
-  const val = document.querySelector('#q-cito .option.selected input')?.value || '';
+  const val = getVal('q-cito');
   document.getElementById('alert-nivel1-cito').style.display = val === 'NIVEL1' ? 'block' : 'none';
-  if (val === 'NIVEL1') { nivel1 = true; nivel1Motivo = 'HSIL ou ASC-H sem seguimento'; }
-  else if (nivel1Motivo === 'HSIL ou ASC-H sem seguimento') { nivel1 = false; nivel1Motivo = ''; }
   updateNavButtons();
 }
 
-// ─── NAVEGAÇÃO CONDICIONAL ───────────────────────────────────
+// ─── BOTÕES DE NAVEGAÇÃO ──────────────────────────────────────────────────────
 function updateNavDemo() {
-  const idade = document.getElementById('q-idade').value;
+  const idade = parseInt(document.getElementById('q-idade').value);
   const estado = document.getElementById('q-estado').value;
-  const esc = document.querySelector('#q-escolaridade .option.selected');
+  const esc = getVal('q-escolaridade');
   const mae = document.getElementById('q-mae').value;
-  const dia = document.getElementById('q-nasc-dia').value;
-  const mes = document.getElementById('q-nasc-mes').value;
-  const ok = idade && parseInt(idade) >= 18 && parseInt(idade) <= 100
+  const dia = parseInt(document.getElementById('q-nasc-dia').value);
+  const mes = parseInt(document.getElementById('q-nasc-mes').value);
+  const ok = idade >= 18 && idade <= 100
           && estado && esc
-          && mae && mae.length === 2
-          && dia && parseInt(dia) >= 1 && parseInt(dia) <= 31
-          && mes && parseInt(mes) >= 1 && parseInt(mes) <= 12;
+          && mae.length === 2
+          && dia >= 1 && dia <= 31
+          && mes >= 1 && mes <= 12;
   document.getElementById('btn-demo-next').disabled = !ok;
 }
 
 function updateNavC() {
-  document.getElementById('btn-c-next').disabled = !document.querySelector('#q-vacina .option.selected');
+  document.getElementById('btn-c-next').disabled = !getVal('q-vacina');
 }
 
 function updateNavButtons() {
-  document.getElementById('btn-a-next').disabled = !document.querySelector('#q-hpv .option.selected');
-  document.getElementById('btn-b-next').disabled = !document.querySelector('#q-cito .option.selected');
-  const dOk = document.querySelector('#q-tabaco .option.selected')
-           && document.querySelector('#q-aco .option.selected')
-           && document.querySelector('#q-paridade .option.selected')
-           && document.querySelector('#q-inicio .option.selected')
-           && checkedImuno.size > 0;
+  document.getElementById('btn-a-next').disabled = !getVal('q-hpv');
+  document.getElementById('btn-b-next').disabled = !getVal('q-cito');
+  const dOk = getVal('q-tabaco') && getVal('q-aco') && getVal('q-paridade') && getVal('q-inicio') && imunoSet.size > 0;
   document.getElementById('btn-d-next').disabled = !dOk;
 }
 
-// ─── CÓDIGO PESSOAL ──────────────────────────────────────────
+// ─── CÓDIGO PESSOAL ───────────────────────────────────────────────────────────
 function gerarCodigo() {
   const mae = document.getElementById('q-mae').value.toUpperCase();
-  const dia = String(document.getElementById('q-nasc-dia').value).padStart(2,'0');
-  const mes = String(document.getElementById('q-nasc-mes').value).padStart(2,'0');
+  const dia = String(document.getElementById('q-nasc-dia').value).padStart(2, '0');
+  const mes = String(document.getElementById('q-nasc-mes').value).padStart(2, '0');
   return mae + dia + mes;
 }
 
-// ─── FOLLOW-UP ───────────────────────────────────────────────
+// ─── FOLLOW-UP ────────────────────────────────────────────────────────────────
 function checkFollowup() {
   const codigo = document.getElementById('fu-codigo').value;
-  const realizou = document.querySelector('#fu-realizou .option.selected input')?.value;
-  document.getElementById('fu-resultado-card').style.display = realizou === 'sim' ? 'block' : 'none';
-  document.getElementById('fu-barreiras-card').style.display = realizou === 'nao_barreiras' ? 'block' : 'none';
+  const realizou = getVal('fu-realizou');
+  document.getElementById('fu-resultado-card').style.display  = realizou === 'sim'           ? 'block' : 'none';
+  document.getElementById('fu-barreiras-card').style.display  = realizou === 'nao_barreiras' ? 'block' : 'none';
   document.getElementById('btn-fu-next').disabled = !(codigo.length >= 4 && realizou);
 }
 
-async function enviarFollowup() {
-  document.getElementById('loadingScreen').classList.add('active');
+function enviarFollowup() {
   const payload = {
     tipo: 'followup',
     timestamp: new Date().toISOString(),
     codigo_pessoal: document.getElementById('fu-codigo').value,
-    realizou_exame: document.querySelector('#fu-realizou .option.selected input')?.value || '',
-    resultado_exame: document.querySelector('#fu-resultado .option.selected input')?.value || '',
-    barreira: document.querySelector('#fu-barreira .option.selected input')?.value || '',
+    realizou_exame: getVal('fu-realizou'),
+    resultado_exame: getVal('fu-resultado'),
+    barreira: getVal('fu-barreira')
   };
-  try {
-    if (!SHEETS_URL) return;
-    await fetch(SHEETS_URL, { method:'POST', mode:'no-cors', body:new URLSearchParams({data: JSON.stringify(payload)}) });
-  } catch(e) { 
-    console.warn(e); 
-  }
-  document.getElementById('loadingScreen').classList.remove('active');
+  enviarViaFormulario(payload);
   goTo('screen-fu-confirmacao');
 }
-// ─── CALCULAR SCORE ──────────────────────────────────────────
+
+// ─── CALCULAR SCORE ───────────────────────────────────────────────────────────
 function calcularScore() {
   document.getElementById('loadingScreen').classList.add('active');
   setTimeout(() => {
@@ -834,7 +681,7 @@ function calcularScore() {
     const resultado = calcular(dados);
     const codigo = gerarCodigo();
     renderizarResultado(resultado, dados, codigo);
-    enviarParaSheets(dados, resultado, codigo);
+    enviarDados(dados, resultado, codigo);
     document.getElementById('loadingScreen').classList.remove('active');
     goTo('screen-resultado');
   }, 1800);
@@ -842,18 +689,18 @@ function calcularScore() {
 
 function coletarDados() {
   return {
-    idade: parseInt(document.getElementById('q-idade').value) || 0,
-    estado: document.getElementById('q-estado').value,
-    esc: document.querySelector('#q-escolaridade .option.selected input')?.value || '',
-    hpvVal: document.querySelector('#q-hpv .option.selected input')?.value || '',
-    citoVal: document.querySelector('#q-cito .option.selected input')?.value || '',
-    vacinaVal: document.querySelector('#q-vacina .option.selected input')?.value || '',
-    tabacoVal: document.querySelector('#q-tabaco .option.selected input')?.value || '',
-    acoVal: document.querySelector('#q-aco .option.selected input')?.value || '',
-    paridadeVal: document.querySelector('#q-paridade .option.selected input')?.value || '',
-    inicioVal: document.querySelector('#q-inicio .option.selected input')?.value || '',
-    imuno: [...checkedImuno],
-    timestamp: new Date().toISOString()
+    idade:      parseInt(document.getElementById('q-idade').value) || 0,
+    estado:     document.getElementById('q-estado').value,
+    esc:        getVal('q-escolaridade'),
+    hpvVal:     getVal('q-hpv'),
+    citoVal:    getVal('q-cito'),
+    vacinaVal:  getVal('q-vacina'),
+    tabacoVal:  getVal('q-tabaco'),
+    acoVal:     getVal('q-aco'),
+    paridadeVal:getVal('q-paridade'),
+    inicioVal:  getVal('q-inicio'),
+    imuno:      [...imunoSet],
+    timestamp:  new Date().toISOString()
   };
 }
 
@@ -863,14 +710,19 @@ function parsePoints(str) {
 }
 
 function calcular(d) {
+  // NÍVEL 1 — bypass direto
   if (d.hpvVal === 'NIVEL1' || d.citoVal === 'NIVEL1') {
-    return { nivel1: true, motivo: d.hpvVal === 'NIVEL1' ? 'HPV 16 e/ou HPV 18 positivo' : 'Citologia com HSIL ou ASC-H sem seguimento adequado', score: null };
+    return {
+      nivel1: true,
+      motivo: d.hpvVal === 'NIVEL1' ? 'HPV 16 e/ou HPV 18 positivo' : 'Citologia com HSIL ou ASC-H sem seguimento adequado',
+      score: null
+    };
   }
   const temImuno = d.imuno.some(v => v !== 'imuno_nenhum');
-  const temHPVonco = ['25_oncogenico_normal','40_oncogenico_alterada'].includes(d.hpvVal);
-  if (temImuno && temHPVonco) {
+  if (temImuno && ['25_oncogenico_normal','40_oncogenico_alterada'].includes(d.hpvVal)) {
     return { nivel1: true, motivo: 'Imunossupressão com HPV oncogênico positivo', score: null };
   }
+  // Blocos
   const blocoA = parsePoints(d.hpvVal);
   const blocoB = parsePoints(d.citoVal);
   const blocoC = parsePoints(d.vacinaVal);
@@ -880,14 +732,14 @@ function calcular(d) {
   if (d.idade >= 45) blocoD += 5;
   const total = blocoA + blocoB + blocoC + blocoD;
   let classificacao, cor, emoji;
-  if (total <= 20)      { classificacao = 'Baixo Risco';      cor = 'low';   emoji = '🟢'; }
+  if      (total <= 20) { classificacao = 'Baixo Risco';      cor = 'low';   emoji = '🟢'; }
   else if (total <= 45) { classificacao = 'Risco Moderado';   cor = 'mod';   emoji = '🟡'; }
   else if (total <= 80) { classificacao = 'Alto Risco';       cor = 'high';  emoji = '🟠'; }
   else                  { classificacao = 'Risco Muito Alto'; cor = 'vhigh'; emoji = '🔴'; }
   return { nivel1: false, score: total, classificacao, cor, emoji, blocoA, blocoB, blocoC, blocoD };
 }
 
-// ─── RENDERIZAR RESULTADO ────────────────────────────────────
+// ─── RENDERIZAR RESULTADO ─────────────────────────────────────────────────────
 function renderizarResultado(r, d, codigo) {
   const container = document.getElementById('result-content');
   const codigoBox = `
@@ -981,36 +833,53 @@ function scoreRow(label, pts) {
   return '<div class="score-row"><span class="label">' + label + '</span><span class="pts ' + cls + '">' + (pts > 0 ? '+' : '') + pts + '</span></div>';
 }
 
-// ─── ENVIO PARA SHEETS ───────────────────────────────────────
-async function enviarParaSheets(dados, resultado, codigo) {
+// ─── ENVIO VIA FORMULÁRIO OCULTO (sem bloqueio de CORS) ──────────────────────
+function enviarViaFormulario(payload) {
   if (!SHEETS_URL) return;
   try {
-    const payload = {
-      tipo: 'avaliacao_inicial',
-      timestamp: dados.timestamp,
-      codigo_pessoal: codigo,
-      idade: dados.idade,
-      estado: dados.estado,
-      escolaridade: dados.esc,
-      hpv: dados.hpvVal,
-      citologia: dados.citoVal,
-      vacina: dados.vacinaVal,
-      tabaco: dados.tabacoVal,
-      aco: dados.acoVal,
-      paridade: dados.paridadeVal,
-      inicio_sexual: dados.inicioVal,
-      imunossupressao: dados.imuno.join(';'),
-      nivel1: resultado.nivel1,
-      nivel1_motivo: resultado.motivo || '',
-      score_total: resultado.score ?? 'NIVEL1',
-      classificacao: resultado.classificacao || 'NIVEL1',
-      bloco_a: resultado.blocoA ?? '',
-      bloco_b: resultado.blocoB ?? '',
-      bloco_c: resultado.blocoC ?? '',
-      bloco_d: resultado.blocoD ?? '',
-    };
-    await fetch(SHEETS_URL, { method:'POST', mode:'no-cors', body:new URLSearchParams({data: JSON.stringify(payload)}) });
-  } catch(e) { console.warn(e); }
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = SHEETS_URL;
+    form.target = 'submit-frame'; // aponta para o iframe oculto — não abre nova aba
+    const campo = document.createElement('input');
+    campo.type  = 'hidden';
+    campo.name  = 'data';
+    campo.value = JSON.stringify(payload);
+    form.appendChild(campo);
+    document.body.appendChild(form);
+    form.submit();
+    setTimeout(() => document.body.removeChild(form), 3000);
+  } catch(e) {
+    console.warn('Erro ao enviar:', e);
+  }
+}
+
+function enviarDados(dados, resultado, codigo) {
+  const payload = {
+    tipo:           'avaliacao_inicial',
+    timestamp:      dados.timestamp,
+    codigo_pessoal: codigo,
+    idade:          dados.idade,
+    estado:         dados.estado,
+    escolaridade:   dados.esc,
+    hpv:            dados.hpvVal,
+    citologia:      dados.citoVal,
+    vacina:         dados.vacinaVal,
+    tabaco:         dados.tabacoVal,
+    aco:            dados.acoVal,
+    paridade:       dados.paridadeVal,
+    inicio_sexual:  dados.inicioVal,
+    imunossupressao:dados.imuno.join(';'),
+    nivel1:         resultado.nivel1,
+    nivel1_motivo:  resultado.motivo  || '',
+    score_total:    resultado.score   ?? 'NIVEL1',
+    classificacao:  resultado.classificacao || 'NIVEL1',
+    bloco_a:        resultado.blocoA  ?? '',
+    bloco_b:        resultado.blocoB  ?? '',
+    bloco_c:        resultado.blocoC  ?? '',
+    bloco_d:        resultado.blocoD  ?? ''
+  };
+  enviarViaFormulario(payload);
 }
 </script>
 </body>
