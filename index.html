@@ -800,7 +800,7 @@ async function enviarFollowup() {
   };
   try {
     if (SHEETS_URL && !SHEETS_URL.includes('https://script.google.com/macros/s/AKfycbzVOxS6patai3CkUKKlZA8OE3iQTtssjj__gQhTrh-NFZzXVX8ICQdB9AC_GxBaDd0vHQ/exec')) {
-      await fetch(SHEETS_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
+      await fetch(SHEETS_URL, { method:'POST', mode:'no-cors', body:new URLSearchParams({data: JSON.stringify(payload)}) });
     }
   } catch(e) { console.warn(e); }
   document.getElementById('loadingScreen').classList.remove('active');
@@ -990,7 +990,7 @@ async function enviarParaSheets(dados, resultado, codigo) {
       bloco_c: resultado.blocoC ?? '',
       bloco_d: resultado.blocoD ?? '',
     };
-    await fetch(SHEETS_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
+    await fetch(SHEETS_URL, { method:'POST', mode:'no-cors', body:new URLSearchParams({data: JSON.stringify(payload)}) });
   } catch(e) { console.warn(e); }
 }
 </script>
