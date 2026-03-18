@@ -819,13 +819,13 @@ async function enviarFollowup() {
   };
   try {
     if (!SHEETS_URL) return;
-      await fetch(SHEETS_URL, { method:'POST', mode:'no-cors', body:new URLSearchParams({data: JSON.stringify(payload)}) });
-    }
-  } catch(e) { console.warn(e); }
+    await fetch(SHEETS_URL, { method:'POST', mode:'no-cors', body:new URLSearchParams({data: JSON.stringify(payload)}) });
+  } catch(e) { 
+    console.warn(e); 
+  }
   document.getElementById('loadingScreen').classList.remove('active');
   goTo('screen-fu-confirmacao');
 }
-
 // ─── CALCULAR SCORE ──────────────────────────────────────────
 function calcularScore() {
   document.getElementById('loadingScreen').classList.add('active');
@@ -983,7 +983,7 @@ function scoreRow(label, pts) {
 
 // ─── ENVIO PARA SHEETS ───────────────────────────────────────
 async function enviarParaSheets(dados, resultado, codigo) {
-  if (!SHEETS_URL || SHEETS_URL.includes('https://script.google.com/macros/s/AKfycbzVOxS6patai3CkUKKlZA8OE3iQTtssjj__gQhTrh-NFZzXVX8ICQdB9AC_GxBaDd0vHQ/exec')) return;
+  if (!SHEETS_URL) return;
   try {
     const payload = {
       tipo: 'avaliacao_inicial',
