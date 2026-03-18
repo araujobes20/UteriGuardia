@@ -695,29 +695,50 @@ function selectOption(el, groupId) {
 }
 
 function toggleCheck(el, val) {
+  // Se clicar em "Nenhuma das anteriores"
   if (val === 'imuno_nenhum') {
     checkedImuno.clear();
     document.querySelectorAll('#q-imuno .check-option').forEach(o => {
       o.classList.remove('selected');
-      o.querySelector('input').checked = false;
+      const input = o.querySelector('input');
+      if (input) input.checked = false;
     });
     el.classList.add('selected');
-    el.querySelector('input').checked = true;
+    const input = el.querySelector('input');
+    if (input) input.checked = true;
     checkedImuno.add('imuno_nenhum');
-  } else {
+  } 
+  // Se clicar em qualquer outra opção (HIV, Quimioterapia, etc)
+  else {
+    // Remove a seleção do "Nenhuma das anteriores" se ela estiver ativa
     checkedImuno.delete('imuno_nenhum');
-    const nenhum = document.querySelector('#q-imuno [value="imuno_nenhum"]')?.closest('.check-option');
-    if (nenhum) { nenhum.classList.remove('selected'); nenhum.querySelector('input').checked = false; }
+    const nenhum = document.querySelector('#q-imuno input[value="imuno_nenhum"]')?.closest('.check-option');
+    if (nenhum) {
+      nenhum.classList.remove('selected');
+      const nInput = nenhum.querySelector('input');
+      if (nInput) nInput.checked = false;
+    }
+
     if (checkedImuno.has(val)) {
       checkedImuno.delete(val);
       el.classList.remove('selected');
-      el.querySelector('input').checked = false;
+      const input = el.querySelector('input');
+      if (input) input.checked = false;
     } else {
       checkedImuno.add(val);
       el.classList.add('selected');
-      el.querySelector('input').checked = true;
+      const input = el.querySelector('input');
+      if (input) input.checked = true;
     }
   }
+  
+  // Marca o card como respondido se houver algo selecionado
+  if (checkedImuno.size > 0) {
+    el.closest('.q-card')?.classList.add('answered');
+  } else {
+    el.closest('.q-card')?.classList.remove('answered');
+  }
+  
   updateNavButtons();
 }
 
