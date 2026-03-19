@@ -15,54 +15,49 @@
     --gray-900:#1A1A2E; --gray-700:#3D4455; --gray-500:#6B7280; --gray-300:#D1D5DB; --gray-100:#F3F4F6;
     --green:#166534; --green-light:#DCFCE7; --yellow:#854D0E; --yellow-light:#FEF9C3;
     --orange:#9A3412; --orange-light:#FFEDD5; --red:#7F1D1D; --red-light:#FEE2E2;
+    --purple:#4B0082; --purple-light:#F3E8FF;
     --radius:16px; --radius-sm:10px;
     --shadow:0 4px 24px rgba(11,79,108,0.10); --shadow-lg:0 8px 40px rgba(11,79,108,0.18);
     --font-head:'Lora',Georgia,serif; --font-body:'DM Sans',system-ui,sans-serif;
   }
-  html { scroll-behavior: smooth; }
-  body { font-family: var(--font-body); background: var(--cream); color: var(--gray-900); min-height: 100vh; -webkit-font-smoothing: antialiased; }
-
-  .progress-wrap { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 5px; background: var(--teal-light); }
-  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--teal), var(--rose)); transition: width 0.5s cubic-bezier(0.4,0,0.2,1); border-radius: 0 4px 4px 0; }
-
-  .app-wrap { max-width: 520px; margin: 0 auto; min-height: 100vh; display: flex; flex-direction: column; }
-  .screen { display: none; flex-direction: column; min-height: 100vh; padding: 28px 20px 40px; animation: fadeUp 0.45s cubic-bezier(0.4,0,0.2,1) both; }
-  .screen.active { display: flex; }
-  @keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
-
-  .welcome-header { text-align: center; padding-top: 40px; }
+  html { scroll-behavior:smooth; }
+  body { font-family:var(--font-body); background:var(--cream); color:var(--gray-900); min-height:100vh; -webkit-font-smoothing:antialiased; }
+  .progress-wrap { position:fixed; top:0; left:0; right:0; z-index:100; height:5px; background:var(--teal-light); }
+  .progress-fill { height:100%; background:linear-gradient(90deg,var(--teal),var(--rose)); transition:width 0.5s cubic-bezier(0.4,0,0.2,1); border-radius:0 4px 4px 0; }
+  .app-wrap { max-width:520px; margin:0 auto; min-height:100vh; display:flex; flex-direction:column; }
+  .screen { display:none; flex-direction:column; min-height:100vh; padding:28px 20px 40px; animation:fadeUp 0.45s cubic-bezier(0.4,0,0.2,1) both; }
+  .screen.active { display:flex; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+  .welcome-header { text-align:center; padding-top:40px; }
   .logo-circle { width:88px; height:88px; border-radius:50%; background:linear-gradient(135deg,var(--teal-dark),var(--teal)); display:flex; align-items:center; justify-content:center; margin:0 auto 20px; box-shadow:var(--shadow-lg); }
   .logo-circle svg { width:44px; height:44px; }
   .app-name { font-family:var(--font-head); font-size:28px; font-weight:700; color:var(--teal-dark); line-height:1.2; margin-bottom:6px; }
-  .app-subtitle { font-size:15px; color:var(--gray-500); font-weight:400; line-height:1.5; }
-
+  .app-subtitle { font-size:15px; color:var(--gray-500); line-height:1.5; }
   .welcome-card { background:var(--white); border-radius:var(--radius); padding:24px; margin:28px 0; box-shadow:var(--shadow); border-left:4px solid var(--teal); }
   .welcome-card p { font-size:14.5px; color:var(--gray-700); line-height:1.7; margin-bottom:12px; }
   .welcome-card p:last-child { margin-bottom:0; }
   .info-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
   .info-tag { background:var(--teal-xlight); color:var(--teal-dark); border-radius:20px; padding:5px 13px; font-size:12.5px; font-weight:500; }
-
   .tcle-box { background:var(--white); border-radius:var(--radius); padding:22px; max-height:56vh; overflow-y:auto; box-shadow:var(--shadow); margin-bottom:20px; border:1.5px solid var(--gray-300); font-size:13.5px; color:var(--gray-700); line-height:1.75; }
   .tcle-box h4 { font-family:var(--font-head); font-size:16px; color:var(--teal-dark); margin-bottom:12px; font-weight:600; }
   .tcle-box p { margin-bottom:12px; }
   .tcle-box ul { padding-left:20px; margin-bottom:12px; }
   .tcle-box li { margin-bottom:6px; }
-
   .checkbox-row { display:flex; align-items:flex-start; gap:12px; background:var(--teal-xlight); border-radius:var(--radius-sm); padding:16px; margin-bottom:16px; cursor:pointer; }
   .checkbox-row input[type="checkbox"] { width:20px; height:20px; cursor:pointer; accent-color:var(--teal); flex-shrink:0; margin-top:1px; }
   .checkbox-row span { font-size:14px; font-weight:500; color:var(--gray-900); line-height:1.5; }
-
   .section-header { margin-bottom:24px; padding-top:16px; }
-  .section-badge { display:inline-flex; align-items:center; gap:6px; background:var(--teal-dark); color:var(--white); border-radius:20px; padding:4px 14px; font-size:12px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:12px; }
+  .section-badge { display:inline-flex; align-items:center; gap:6px; border-radius:20px; padding:4px 14px; font-size:12px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:12px; }
+  .badge-teal   { background:var(--teal-dark); color:var(--white); }
+  .badge-purple { background:var(--purple); color:var(--white); }
+  .badge-green  { background:var(--green); color:var(--white); }
   .section-title { font-family:var(--font-head); font-size:22px; font-weight:700; color:var(--gray-900); line-height:1.3; margin-bottom:8px; }
   .section-desc { font-size:14px; color:var(--gray-500); line-height:1.6; }
-
+  .research-note { background:var(--purple-light); border-left:4px solid var(--purple); border-radius:var(--radius-sm); padding:12px 16px; margin-bottom:16px; font-size:13px; color:var(--purple); line-height:1.6; }
   .q-card { background:var(--white); border-radius:var(--radius); padding:20px; margin-bottom:16px; box-shadow:var(--shadow); border:1.5px solid transparent; transition:border-color 0.2s; }
   .q-card.answered { border-color:var(--teal-light); }
   .q-label { font-size:15px; font-weight:600; color:var(--gray-900); line-height:1.45; margin-bottom:4px; }
   .q-hint { font-size:12.5px; color:var(--gray-500); margin-bottom:14px; line-height:1.5; }
-
-  /* ── OPÇÕES DE RÁDIO ── */
   .options { display:flex; flex-direction:column; gap:8px; }
   .option { display:flex; align-items:center; gap:12px; padding:13px 15px; border-radius:var(--radius-sm); border:1.5px solid var(--gray-300); cursor:pointer; transition:all 0.2s; background:var(--white); user-select:none; }
   .option:hover { border-color:var(--teal); background:var(--teal-xlight); }
@@ -73,99 +68,76 @@
   .option.selected .radio-dot::after { content:''; width:7px; height:7px; border-radius:50%; background:white; }
   .option.level1-flag.selected .radio-dot { border-color:var(--rose); background:var(--rose); }
   .option-text { font-size:14px; color:var(--gray-900); line-height:1.4; flex:1; font-weight:400; pointer-events:none; }
-
-  /* ── CHECKBOXES IMUNOSSUPRESSÃO — usa DIV para evitar duplo disparo ── */
   .chk-option { display:flex; align-items:flex-start; gap:12px; padding:13px 15px; border-radius:var(--radius-sm); border:1.5px solid var(--gray-300); cursor:pointer; transition:all 0.2s; background:var(--white); user-select:none; }
   .chk-option:hover { border-color:var(--teal); background:var(--teal-xlight); }
   .chk-option.selected { border-color:var(--teal); background:var(--teal-xlight); }
   .chk-dot { width:18px; height:18px; border-radius:4px; border:2px solid var(--gray-300); flex-shrink:0; margin-top:1px; display:flex; align-items:center; justify-content:center; transition:all 0.2s; pointer-events:none; }
   .chk-option.selected .chk-dot { border-color:var(--teal); background:var(--teal); }
   .chk-option.selected .chk-dot::after { content:'✓'; font-size:11px; color:white; font-weight:700; }
-
   .num-input { width:100%; padding:13px 15px; border-radius:var(--radius-sm); border:1.5px solid var(--gray-300); font-family:var(--font-body); font-size:15px; color:var(--gray-900); outline:none; transition:border-color 0.2s; background:var(--white); }
   .num-input:focus { border-color:var(--teal); box-shadow:0 0 0 3px rgba(27,122,158,0.12); }
-
   .alert-level1 { background:var(--rose-light); border:2px solid var(--rose); border-radius:var(--radius); padding:20px; text-align:center; margin:12px 0; }
   .alert-level1 .alert-icon { font-size:36px; margin-bottom:10px; }
   .alert-level1 h3 { font-family:var(--font-head); font-size:18px; color:var(--rose); margin-bottom:8px; font-weight:700; }
   .alert-level1 p { font-size:14px; color:var(--gray-700); line-height:1.6; }
-
-  .btn { width:100%; padding:16px; border-radius:var(--radius-sm); border:none; font-family:var(--font-body); font-size:16px; font-weight:600; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; justify-content:center; gap:8px; letter-spacing:0.01em; }
+  .btn { width:100%; padding:16px; border-radius:var(--radius-sm); border:none; font-family:var(--font-body); font-size:16px; font-weight:600; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; justify-content:center; gap:8px; }
   .btn-primary { background:linear-gradient(135deg,var(--teal-dark),var(--teal)); color:white; box-shadow:0 4px 16px rgba(11,79,108,0.30); }
   .btn-primary:hover { transform:translateY(-1px); }
   .btn-primary:disabled { opacity:0.45; cursor:not-allowed; transform:none; }
   .btn-secondary { background:var(--white); color:var(--teal-dark); border:2px solid var(--teal-light); margin-bottom:10px; }
   .btn-secondary:hover { background:var(--teal-xlight); }
   .btn-danger { background:var(--rose-light); color:var(--rose); border:2px solid var(--rose); margin-top:10px; }
-
   .nav-row { display:flex; gap:12px; margin-top:24px; }
   .btn-back { flex:0 0 50px; padding:16px; border-radius:var(--radius-sm); border:2px solid var(--gray-300); background:var(--white); color:var(--gray-500); font-size:20px; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; justify-content:center; }
   .btn-back:hover { border-color:var(--teal); color:var(--teal); }
   .btn-next { flex:1; padding:16px; border-radius:var(--radius-sm); border:none; background:linear-gradient(135deg,var(--teal-dark),var(--teal)); color:white; font-family:var(--font-body); font-size:16px; font-weight:600; cursor:pointer; transition:all 0.2s; box-shadow:0 4px 16px rgba(11,79,108,0.28); }
   .btn-next:hover { transform:translateY(-1px); }
   .btn-next:disabled { opacity:0.42; cursor:not-allowed; transform:none; }
-
   .result-header { text-align:center; padding:32px 0 24px; }
-  .result-ring { width:120px; height:120px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 20px; font-size:48px; box-shadow:var(--shadow-lg); }
+  .result-ring { width:120px; height:120px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 20px; box-shadow:var(--shadow-lg); }
   .result-score { font-family:var(--font-head); font-size:42px; font-weight:700; line-height:1; }
   .result-score-label { font-size:13px; color:var(--gray-500); font-weight:500; text-transform:uppercase; letter-spacing:0.08em; margin-top:4px; }
   .result-class { font-family:var(--font-head); font-size:26px; font-weight:700; margin:12px 0 6px; }
-  .result-desc { font-size:14.5px; color:var(--gray-700); line-height:1.6; }
-
   .result-card { border-radius:var(--radius); padding:20px; margin-bottom:14px; }
   .result-card h3 { font-family:var(--font-head); font-size:15px; font-weight:600; margin-bottom:10px; }
   .result-card ul { padding-left:18px; }
   .result-card li { font-size:14px; line-height:1.7; margin-bottom:4px; }
-  .result-low    { background:var(--green-light);  color:var(--green); }
-  .result-mod    { background:var(--yellow-light); color:var(--yellow); }
-  .result-high   { background:var(--orange-light); color:var(--orange); }
-  .result-vhigh  { background:var(--red-light);    color:var(--red); }
-  .result-action { background:var(--rose-light);   color:var(--rose); }
-
+  .result-low   { background:var(--green-light);  color:var(--green); }
+  .result-mod   { background:var(--yellow-light); color:var(--yellow); }
+  .result-high  { background:var(--orange-light); color:var(--orange); }
+  .result-vhigh { background:var(--red-light);    color:var(--red); }
+  .result-action{ background:var(--rose-light);   color:var(--rose); }
   .score-breakdown { background:var(--white); border-radius:var(--radius); padding:20px; margin-bottom:14px; box-shadow:var(--shadow); }
   .score-breakdown h3 { font-size:14px; font-weight:600; color:var(--gray-700); margin-bottom:14px; text-transform:uppercase; letter-spacing:0.06em; }
   .score-row { display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid var(--gray-100); font-size:13.5px; }
   .score-row:last-child { border-bottom:none; }
-  .score-row .label { color:var(--gray-700); }
+  .score-row .lbl { color:var(--gray-700); }
   .score-row .pts { font-weight:700; color:var(--teal-dark); font-family:var(--font-head); }
   .score-row .pts.zero { color:var(--gray-300); }
-  .score-row .pts.negative { color:var(--green); }
+  .score-row .pts.neg  { color:var(--green); }
   .divider-score { border:none; border-top:2px solid var(--gray-900); margin:8px 0; }
   .score-total-row { display:flex; justify-content:space-between; align-items:center; padding:10px 0 0; font-size:15px; font-weight:700; }
-
   .ubs-card { background:var(--teal-xlight); border:1.5px solid var(--teal-light); border-radius:var(--radius); padding:18px; margin-bottom:14px; }
   .ubs-card h3 { font-family:var(--font-head); font-size:15px; color:var(--teal-dark); margin-bottom:8px; font-weight:600; }
   .ubs-card p { font-size:14px; color:var(--gray-700); line-height:1.6; }
   .ubs-card a { color:var(--teal); font-weight:600; text-decoration:none; }
-
   .codigo-box { background:var(--teal-dark); border-radius:var(--radius); padding:20px; margin-bottom:14px; text-align:center; }
   .codigo-label { font-size:12px; color:rgba(255,255,255,0.7); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.08em; }
   .codigo-valor { font-family:var(--font-head); font-size:32px; font-weight:700; color:white; letter-spacing:0.2em; }
-  .codigo-hint { font-size:12px; color:rgba(255,255,255,0.7); margin-top:8px; line-height:1.6; }
-
+  .codigo-hint  { font-size:12px; color:rgba(255,255,255,0.7); margin-top:8px; line-height:1.6; }
   .disclaimer { background:var(--gray-100); border-radius:var(--radius-sm); padding:14px; font-size:12.5px; color:var(--gray-500); line-height:1.6; margin-bottom:14px; text-align:center; }
-
   .loading-screen { display:none; position:fixed; inset:0; background:rgba(255,255,255,0.9); z-index:200; flex-direction:column; align-items:center; justify-content:center; gap:16px; }
   .loading-screen.active { display:flex; }
   .spinner { width:44px; height:44px; border-radius:50%; border:4px solid var(--teal-light); border-top-color:var(--teal); animation:spin 0.8s linear infinite; }
-  @keyframes spin { to { transform:rotate(360deg); } }
+  @keyframes spin { to{transform:rotate(360deg)} }
   .loading-text { font-size:15px; color:var(--gray-700); font-weight:500; }
-
   .top-nav { display:flex; align-items:center; justify-content:space-between; padding-top:20px; margin-bottom:8px; }
   .step-indicator { font-size:12.5px; color:var(--gray-500); font-weight:500; background:var(--white); padding:5px 12px; border-radius:20px; border:1px solid var(--gray-300); }
-
   .tcle-box::-webkit-scrollbar { width:4px; }
-  .tcle-box::-webkit-scrollbar-track { background:var(--gray-100); }
   .tcle-box::-webkit-scrollbar-thumb { background:var(--teal-light); border-radius:2px; }
-
-  /* iframe oculto para envio sem bloqueio de CORS */
-  #submit-frame { display:none; width:0; height:0; border:none; }
 </style>
 </head>
 <body>
-
-<!-- iframe oculto que recebe o submit do formulário -->
-<iframe id="submit-frame" name="submit-frame"></iframe>
 
 <div class="progress-wrap"><div class="progress-fill" id="progressBar" style="width:0%"></div></div>
 <div class="loading-screen" id="loadingScreen">
@@ -179,7 +151,7 @@
   <div class="screen active" id="screen-welcome">
     <div class="welcome-header">
       <div class="logo-circle">
-        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 44 44" fill="none">
           <circle cx="22" cy="22" r="20" fill="white" fill-opacity="0.15"/>
           <path d="M22 8C22 8 14 14 14 22C14 26.4 17.6 30 22 30C26.4 30 30 26.4 30 22C30 14 22 8 22 8Z" fill="white"/>
           <path d="M22 30V36" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
@@ -191,19 +163,20 @@
       <p class="app-subtitle">Rastreamento do Câncer do<br/>Colo do Útero baseado em evidências</p>
     </div>
     <div class="welcome-card">
-      <p>Este aplicativo foi desenvolvido com base nas <strong>Diretrizes Brasileiras MS/INCA 2025</strong> para ajudar a identificar o seu risco para o câncer do colo do útero e orientar quando e como realizar o rastreamento adequado.</p>
-      <p>Você responderá perguntas sobre seu histórico de exames, resultado de HPV, vacinação e alguns fatores de saúde. Ao final, receberá uma <strong>classificação de risco personalizada</strong> com orientações baseadas em evidências científicas.</p>
-      <p>O questionário leva aproximadamente <strong>5 minutos</strong>.</p>
+      <p>Este aplicativo foi desenvolvido com base nas <strong>Diretrizes Brasileiras MS/INCA 2025</strong> para ajudar a identificar o seu risco para o câncer do colo do útero.</p>
+      <p>Você responderá perguntas sobre exames, HPV, vacinação, fatores de saúde, acesso ao sistema de saúde e conhecimentos sobre o tema. Ao final, receberá uma <strong>classificação de risco personalizada</strong>.</p>
+      <p>O questionário leva aproximadamente <strong>8 minutos</strong>.</p>
       <div class="info-tags">
         <span class="info-tag">🔒 100% anônimo</span>
-        <span class="info-tag">⏱ 5 minutos</span>
+        <span class="info-tag">⏱ 8 minutos</span>
+        <span class="info-tag">📱 Sem instalação</span>
       </div>
     </div>
     <button class="btn btn-primary" onclick="goTo('screen-tcle')">Começar →</button>
     <button class="btn btn-secondary" onclick="goTo('screen-followup')" style="margin-top:10px;">
       Já participei — informar resultado do exame
     </button>
-    <p style="text-align:center; font-size:12px; color:var(--gray-500); margin-top:14px;">
+    <p style="text-align:center;font-size:12px;color:var(--gray-500);margin-top:14px;">
       Projeto de pesquisa — Faculdade Privada<br/>Aprovado pelo Comitê de Ética em Pesquisa
     </p>
   </div>
@@ -212,22 +185,22 @@
   <div class="screen" id="screen-tcle">
     <div class="top-nav"><span class="step-indicator">Termo de Consentimento</span></div>
     <div class="section-header">
-      <div class="section-badge">📄 TCLE</div>
+      <div class="section-badge badge-teal">📄 TCLE</div>
       <h2 class="section-title">Antes de começar, leia o Termo de Consentimento</h2>
     </div>
     <div class="tcle-box">
       <h4>Termo de Consentimento Livre e Esclarecido (TCLE)</h4>
       <p>Você está sendo convidada a participar de uma pesquisa científica sobre <strong>rastreamento do câncer do colo do útero</strong>, desenvolvida em conformidade com a Resolução CNS nº 466/2012 e a Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018).</p>
-      <p><strong>Objetivo do estudo:</strong> Desenvolver e validar um algoritmo digital de estratificação de risco para o câncer do colo do útero, integrando dados de DNA-HPV, histórico citológico e fatores clínico-comportamentais.</p>
-      <p><strong>O que você vai fazer:</strong> Responder a um questionário digital com perguntas sobre seu histórico de exames ginecológicos, resultado de teste de HPV, vacinação e outros fatores de saúde. Ao final, você receberá uma classificação de risco individual com orientações.</p>
-      <p><strong>Riscos:</strong> Os riscos são mínimos e se restringem a eventual desconforto emocional ao responder perguntas sobre saúde. Você pode interromper a participação a qualquer momento sem nenhum prejuízo.</p>
-      <p><strong>Benefícios:</strong> Você receberá uma avaliação personalizada do seu risco com orientações baseadas nas diretrizes brasileiras mais atualizadas (MS/INCA 2025).</p>
-      <p><strong>Confidencialidade:</strong> Seus dados serão armazenados de forma anônima, sem identificação nominal, em servidor criptografado. Somente os pesquisadores responsáveis terão acesso às informações.</p>
-      <p><strong>Participação voluntária:</strong> Sua participação é completamente voluntária. Você pode desistir a qualquer momento sem qualquer consequência.</p>
+      <p><strong>Objetivo:</strong> Desenvolver e validar um algoritmo digital de estratificação de risco, integrando dados de DNA-HPV, histórico citológico, fatores clínico-comportamentais, conhecimento sobre HPV e acesso ao sistema de saúde.</p>
+      <p><strong>O que você vai fazer:</strong> Responder a um questionário digital. Ao final, você receberá uma classificação de risco individual com orientações.</p>
+      <p><strong>Riscos:</strong> Mínimos — eventual desconforto emocional. Você pode interromper a qualquer momento.</p>
+      <p><strong>Benefícios:</strong> Avaliação personalizada do seu risco com orientações baseadas nas diretrizes MS/INCA 2025.</p>
+      <p><strong>Confidencialidade:</strong> Dados anônimos, sem identificação nominal. Uso exclusivamente científico.</p>
+      <p><strong>Participação voluntária:</strong> Você pode desistir a qualquer momento sem qualquer consequência.</p>
       <ul>
-        <li>Este não é um serviço médico e não substitui consulta presencial</li>
+        <li>Este não é um serviço médico — não substitui consulta presencial</li>
         <li>Em caso de emergência, procure uma Unidade de Saúde</li>
-        <li>Canal de apoio emocional: CVV — ligue 188 (gratuito, 24h)</li>
+        <li>Apoio emocional: CVV — ligue 188 (gratuito, 24h)</li>
       </ul>
     </div>
     <div class="checkbox-row" onclick="document.getElementById('tcleCheck').click()">
@@ -240,15 +213,14 @@
 
   <!-- DADOS DEMOGRÁFICOS -->
   <div class="screen" id="screen-demografico">
-    <div class="top-nav"><span class="step-indicator">Etapa 1 de 5</span></div>
+    <div class="top-nav"><span class="step-indicator">Etapa 1 de 7</span></div>
     <div class="section-header">
-      <div class="section-badge">👤 Perfil</div>
+      <div class="section-badge badge-teal">👤 Perfil</div>
       <h2 class="section-title">Dados gerais</h2>
-      <p class="section-desc">Essas informações são usadas apenas para análise estatística, de forma anônima.</p>
+      <p class="section-desc">Usados apenas para análise estatística anônima.</p>
     </div>
     <div class="q-card">
       <div class="q-label">Qual é a sua idade?</div>
-      <div class="q-hint">Em anos completos</div>
       <input type="number" class="num-input" id="q-idade" min="18" max="100" placeholder="Ex: 35" oninput="updateNavDemo()"/>
     </div>
     <div class="q-card">
@@ -274,25 +246,29 @@
         <option>Sergipe</option><option>Tocantins</option>
       </select>
     </div>
+    <!-- ★ CAMPO NOVO: CIDADE ★ -->
+    <div class="q-card">
+      <div class="q-label">Em qual cidade você mora?</div>
+      <div class="q-hint">Digite o nome da sua cidade</div>
+      <input type="text" class="num-input" id="q-cidade" placeholder="Ex: Aracaju"
+             oninput="updateNavDemo()"
+             style="text-transform:capitalize;"/>
+    </div>
     <div class="q-card">
       <div class="q-label">Primeiras 2 letras do nome da sua mãe</div>
-      <div class="q-hint">Usado apenas para gerar seu código anônimo de acompanhamento. Ex: "Maria" → MA</div>
+      <div class="q-hint">Usado apenas para gerar seu código anônimo. Ex: "Maria" → MA</div>
       <input type="text" class="num-input" id="q-mae" placeholder="Ex: MA" maxlength="2"
              oninput="this.value=this.value.toUpperCase().replace(/[^A-Z]/g,''); updateNavDemo()"
-             style="text-transform:uppercase; letter-spacing:0.2em; font-weight:600;"/>
+             style="text-transform:uppercase;letter-spacing:0.2em;font-weight:600;"/>
     </div>
     <div class="q-card">
       <div class="q-label">Dia e mês do seu nascimento</div>
       <div class="q-hint">Ex: dia 14 de março → dia: 14, mês: 03</div>
-      <div style="display:flex; gap:12px;">
-        <div style="flex:1;">
-          <div style="font-size:12px; color:var(--gray-500); margin-bottom:6px;">Dia</div>
-          <input type="number" class="num-input" id="q-nasc-dia" min="1" max="31" placeholder="DD" oninput="updateNavDemo()"/>
-        </div>
-        <div style="flex:1;">
-          <div style="font-size:12px; color:var(--gray-500); margin-bottom:6px;">Mês</div>
-          <input type="number" class="num-input" id="q-nasc-mes" min="1" max="12" placeholder="MM" oninput="updateNavDemo()"/>
-        </div>
+      <div style="display:flex;gap:12px;">
+        <div style="flex:1;"><div style="font-size:12px;color:var(--gray-500);margin-bottom:6px;">Dia</div>
+          <input type="number" class="num-input" id="q-nasc-dia" min="1" max="31" placeholder="DD" oninput="updateNavDemo()"/></div>
+        <div style="flex:1;"><div style="font-size:12px;color:var(--gray-500);margin-bottom:6px;">Mês</div>
+          <input type="number" class="num-input" id="q-nasc-mes" min="1" max="12" placeholder="MM" oninput="updateNavDemo()"/></div>
       </div>
     </div>
     <div class="nav-row">
@@ -303,30 +279,28 @@
 
   <!-- BLOCO A — HPV -->
   <div class="screen" id="screen-blocoA">
-    <div class="top-nav"><span class="step-indicator">Etapa 2 de 5</span></div>
+    <div class="top-nav"><span class="step-indicator">Etapa 2 de 7</span></div>
     <div class="section-header">
-      <div class="section-badge">🧬 Bloco A</div>
+      <div class="section-badge badge-teal">🧬 Bloco A</div>
       <h2 class="section-title">Teste de DNA-HPV</h2>
-      <p class="section-desc">O teste molecular de HPV é o método mais atual de rastreamento cervical recomendado pelo Ministério da Saúde desde 2024.</p>
+      <p class="section-desc">O teste molecular de HPV é o método mais atual de rastreamento cervical recomendado pelo MS desde 2024.</p>
     </div>
     <div class="q-card">
       <div class="q-label">Qual é a sua situação em relação ao teste de DNA-HPV?</div>
-      <div class="q-hint">Escolha a opção que melhor descreve sua situação atual</div>
       <div class="options" id="q-hpv">
-        <div class="option" onclick="selectOption(this,'q-hpv','0_negativo_recente'); checkLevel1()"><span class="radio-dot"></span><span class="option-text">Realizei o teste e o resultado foi <strong>negativo há menos de 5 anos</strong></span></div>
-        <div class="option" onclick="selectOption(this,'q-hpv','15_negativo_antigo'); checkLevel1()"><span class="radio-dot"></span><span class="option-text">Realizei o teste e o resultado foi <strong>negativo há mais de 5 anos</strong></span></div>
-        <div class="option" onclick="selectOption(this,'q-hpv','15_nunca'); checkLevel1()"><span class="radio-dot"></span><span class="option-text"><strong>Nunca realizei</strong> o teste de DNA-HPV</span></div>
-        <div class="option" onclick="selectOption(this,'q-hpv','25_oncogenico_normal'); checkLevel1()"><span class="radio-dot"></span><span class="option-text">Positivo para <strong>HPV oncogênico</strong> (não é HPV 16 ou 18), citologia <strong>normal</strong></span></div>
-        <div class="option" onclick="selectOption(this,'q-hpv','40_oncogenico_alterada'); checkLevel1()"><span class="radio-dot"></span><span class="option-text">Positivo para <strong>HPV oncogênico</strong> (não é HPV 16 ou 18), citologia <strong>alterada (ASC-US ou LSIL)</strong></span></div>
-        <div class="option level1-flag" onclick="selectOption(this,'q-hpv','NIVEL1'); checkLevel1()"><span class="radio-dot"></span><span class="option-text">Positivo para <strong>HPV 16 e/ou HPV 18</strong> ⚠️</span></div>
-        <div class="option" onclick="selectOption(this,'q-hpv','0_nao_sei'); checkLevel1()"><span class="radio-dot"></span><span class="option-text">Realizei o teste mas <strong>não sei o resultado</strong></span></div>
+        <div class="option" onclick="selectOption(this,'q-hpv','0_negativo_recente');checkLevel1()"><span class="radio-dot"></span><span class="option-text">Realizei e o resultado foi <strong>negativo há menos de 5 anos</strong></span></div>
+        <div class="option" onclick="selectOption(this,'q-hpv','15_negativo_antigo');checkLevel1()"><span class="radio-dot"></span><span class="option-text">Realizei e o resultado foi <strong>negativo há mais de 5 anos</strong></span></div>
+        <div class="option" onclick="selectOption(this,'q-hpv','15_nunca');checkLevel1()"><span class="radio-dot"></span><span class="option-text"><strong>Nunca realizei</strong> o teste de DNA-HPV</span></div>
+        <div class="option" onclick="selectOption(this,'q-hpv','25_oncogenico_normal');checkLevel1()"><span class="radio-dot"></span><span class="option-text">Positivo para <strong>HPV oncogênico</strong> (não é 16/18), citologia <strong>normal</strong></span></div>
+        <div class="option" onclick="selectOption(this,'q-hpv','40_oncogenico_alterada');checkLevel1()"><span class="radio-dot"></span><span class="option-text">Positivo para <strong>HPV oncogênico</strong> (não é 16/18), citologia <strong>alterada (ASC-US ou LSIL)</strong></span></div>
+        <div class="option level1-flag" onclick="selectOption(this,'q-hpv','NIVEL1');checkLevel1()"><span class="radio-dot"></span><span class="option-text">Positivo para <strong>HPV 16 e/ou HPV 18</strong> ⚠️</span></div>
+        <div class="option" onclick="selectOption(this,'q-hpv','0_nao_sei');checkLevel1()"><span class="radio-dot"></span><span class="option-text">Realizei mas <strong>não sei o resultado</strong></span></div>
       </div>
     </div>
     <div id="alert-nivel1-hpv" style="display:none;">
-      <div class="alert-level1">
-        <div class="alert-icon">⚠️</div>
+      <div class="alert-level1"><div class="alert-icon">⚠️</div>
         <h3>Atenção — Encaminhamento Recomendado</h3>
-        <p>A positividade para HPV 16 ou HPV 18 é indicação de <strong>encaminhamento direto para colposcopia</strong>, conforme as Diretrizes Brasileiras MS/INCA 2025. Por favor, procure uma Unidade de Saúde com urgência.</p>
+        <p>HPV 16 ou 18 positivo é indicação de <strong>colposcopia direta</strong> — Diretrizes MS/INCA 2025. Procure uma UBS com urgência.</p>
       </div>
     </div>
     <div class="nav-row">
@@ -337,29 +311,26 @@
 
   <!-- BLOCO B — CITOLOGIA -->
   <div class="screen" id="screen-blocoB">
-    <div class="top-nav"><span class="step-indicator">Etapa 3 de 5</span></div>
+    <div class="top-nav"><span class="step-indicator">Etapa 3 de 7</span></div>
     <div class="section-header">
-      <div class="section-badge">🔬 Bloco B</div>
+      <div class="section-badge badge-teal">🔬 Bloco B</div>
       <h2 class="section-title">Histórico de Citologia (Papanicolaou)</h2>
-      <p class="section-desc">O exame de Papanicolaou continua sendo importante no rastreamento cervical, especialmente onde o DNA-HPV ainda não está disponível.</p>
     </div>
     <div class="q-card">
-      <div class="q-label">Qual é a sua situação em relação ao exame de Papanicolaou?</div>
-      <div class="q-hint">Escolha apenas UMA opção</div>
+      <div class="q-label">Qual é a sua situação em relação ao Papanicolaou?</div>
       <div class="options" id="q-cito">
-        <div class="option" onclick="selectOption(this,'q-cito','0_normal_recente'); checkLevel1B()"><span class="radio-dot"></span><span class="option-text">Realizei e o resultado foi <strong>normal há 3 anos ou menos</strong></span></div>
-        <div class="option" onclick="selectOption(this,'q-cito','15_atrasado'); checkLevel1B()"><span class="radio-dot"></span><span class="option-text">Realizei, mas o <strong>último exame foi há mais de 3 anos</strong></span></div>
-        <div class="option" onclick="selectOption(this,'q-cito','25_nunca'); checkLevel1B()"><span class="radio-dot"></span><span class="option-text"><strong>Nunca realizei</strong> o exame de Papanicolaou</span></div>
-        <div class="option" onclick="selectOption(this,'q-cito','20_ascus_lsil'); checkLevel1B()"><span class="radio-dot"></span><span class="option-text">Tive resultado <strong>alterado (ASC-US ou LSIL)</strong> e não fiz seguimento adequado</span></div>
-        <div class="option level1-flag" onclick="selectOption(this,'q-cito','NIVEL1'); checkLevel1B()"><span class="radio-dot"></span><span class="option-text">Tive resultado com <strong>HSIL ou ASC-H</strong> sem seguimento ⚠️</span></div>
-        <div class="option" onclick="selectOption(this,'q-cito','0_nao_sei'); checkLevel1B()"><span class="radio-dot"></span><span class="option-text">Realizei mas <strong>não lembro o resultado</strong></span></div>
+        <div class="option" onclick="selectOption(this,'q-cito','0_normal_recente');checkLevel1B()"><span class="radio-dot"></span><span class="option-text">Realizei e resultado foi <strong>normal há 3 anos ou menos</strong></span></div>
+        <div class="option" onclick="selectOption(this,'q-cito','15_atrasado');checkLevel1B()"><span class="radio-dot"></span><span class="option-text">Realizei mas o <strong>último foi há mais de 3 anos</strong></span></div>
+        <div class="option" onclick="selectOption(this,'q-cito','25_nunca');checkLevel1B()"><span class="radio-dot"></span><span class="option-text"><strong>Nunca realizei</strong> o Papanicolaou</span></div>
+        <div class="option" onclick="selectOption(this,'q-cito','20_ascus_lsil');checkLevel1B()"><span class="radio-dot"></span><span class="option-text">Resultado <strong>alterado (ASC-US ou LSIL)</strong> sem seguimento adequado</span></div>
+        <div class="option level1-flag" onclick="selectOption(this,'q-cito','NIVEL1');checkLevel1B()"><span class="radio-dot"></span><span class="option-text">Resultado com <strong>HSIL ou ASC-H</strong> sem seguimento ⚠️</span></div>
+        <div class="option" onclick="selectOption(this,'q-cito','0_nao_sei');checkLevel1B()"><span class="radio-dot"></span><span class="option-text">Realizei mas <strong>não lembro o resultado</strong></span></div>
       </div>
     </div>
     <div id="alert-nivel1-cito" style="display:none;">
-      <div class="alert-level1">
-        <div class="alert-icon">⚠️</div>
+      <div class="alert-level1"><div class="alert-icon">⚠️</div>
         <h3>Atenção — Colposcopia Indicada</h3>
-        <p>Resultado HSIL ou ASC-H sem seguimento adequado é indicação de <strong>colposcopia direta</strong> conforme as diretrizes MS/INCA 2025 e ASCCP 2019. Procure uma Unidade de Saúde o quanto antes.</p>
+        <p>HSIL ou ASC-H sem seguimento é indicação de <strong>colposcopia direta</strong> — MS/INCA 2025. Procure uma UBS o quanto antes.</p>
       </div>
     </div>
     <div class="nav-row">
@@ -370,20 +341,19 @@
 
   <!-- BLOCO C — VACINAÇÃO -->
   <div class="screen" id="screen-blocoC">
-    <div class="top-nav"><span class="step-indicator">Etapa 4 de 5</span></div>
+    <div class="top-nav"><span class="step-indicator">Etapa 4 de 7</span></div>
     <div class="section-header">
-      <div class="section-badge">💉 Bloco C</div>
+      <div class="section-badge badge-teal">💉 Bloco C</div>
       <h2 class="section-title">Vacinação contra o HPV</h2>
-      <p class="section-desc">A vacina contra HPV está disponível gratuitamente no SUS e protege especialmente contra os tipos 16 e 18, responsáveis por 70% dos cânceres do colo do útero.</p>
     </div>
     <div class="q-card">
       <div class="q-label">Qual é a sua situação vacinal contra o HPV?</div>
       <div class="options" id="q-vacina">
-        <div class="option" onclick="selectOption(this,'q-vacina','-5_completa_antes15'); updateNavC()"><span class="radio-dot"></span><span class="option-text">Recebi o <strong>esquema completo antes dos 15 anos</strong> (máxima proteção)</span></div>
-        <div class="option" onclick="selectOption(this,'q-vacina','0_completa_depois'); updateNavC()"><span class="radio-dot"></span><span class="option-text">Recebi o esquema completo, mas <strong>depois dos 15 anos</strong></span></div>
-        <div class="option" onclick="selectOption(this,'q-vacina','0_incompleto'); updateNavC()"><span class="radio-dot"></span><span class="option-text">Recebi <strong>parte das doses</strong> (esquema incompleto)</span></div>
-        <div class="option" onclick="selectOption(this,'q-vacina','5_nao_vacinada'); updateNavC()"><span class="radio-dot"></span><span class="option-text"><strong>Não me vacinei</strong> contra o HPV</span></div>
-        <div class="option" onclick="selectOption(this,'q-vacina','5_nao_sei'); updateNavC()"><span class="radio-dot"></span><span class="option-text"><strong>Não sei</strong> se tomei a vacina</span></div>
+        <div class="option" onclick="selectOption(this,'q-vacina','-5_completa_antes15');updateNavC()"><span class="radio-dot"></span><span class="option-text"><strong>Esquema completo antes dos 15 anos</strong> (máxima proteção)</span></div>
+        <div class="option" onclick="selectOption(this,'q-vacina','0_completa_depois');updateNavC()"><span class="radio-dot"></span><span class="option-text">Esquema completo, mas <strong>depois dos 15 anos</strong></span></div>
+        <div class="option" onclick="selectOption(this,'q-vacina','0_incompleto');updateNavC()"><span class="radio-dot"></span><span class="option-text"><strong>Esquema incompleto</strong> (nem todas as doses)</span></div>
+        <div class="option" onclick="selectOption(this,'q-vacina','5_nao_vacinada');updateNavC()"><span class="radio-dot"></span><span class="option-text"><strong>Não me vacinei</strong> contra o HPV</span></div>
+        <div class="option" onclick="selectOption(this,'q-vacina','5_nao_sei');updateNavC()"><span class="radio-dot"></span><span class="option-text"><strong>Não sei</strong> se tomei a vacina</span></div>
       </div>
     </div>
     <div class="nav-row">
@@ -394,18 +364,15 @@
 
   <!-- BLOCO D — CO-FATORES -->
   <div class="screen" id="screen-blocoD">
-    <div class="top-nav"><span class="step-indicator">Etapa 5 de 5</span></div>
+    <div class="top-nav"><span class="step-indicator">Etapa 5 de 7</span></div>
     <div class="section-header">
-      <div class="section-badge">🏥 Bloco D</div>
+      <div class="section-badge badge-teal">🏥 Bloco D</div>
       <h2 class="section-title">Fatores de saúde e história pessoal</h2>
-      <p class="section-desc">Selecione <strong>todos que se aplicam</strong> ao seu caso.</p>
     </div>
-
-    <!-- CORREÇÃO: usa div.chk-option em vez de label para evitar duplo disparo -->
     <div class="q-card" id="card-imuno">
       <div class="q-label">Você tem alguma das condições abaixo?</div>
       <div class="q-hint">Selecione todas que se aplicam</div>
-      <div style="display:flex; flex-direction:column; gap:8px;" id="q-imuno">
+      <div style="display:flex;flex-direction:column;gap:8px;" id="q-imuno">
         <div class="chk-option" onclick="toggleImuno(this,'imuno_hiv')"><span class="chk-dot"></span><span class="option-text">HIV positivo</span></div>
         <div class="chk-option" onclick="toggleImuno(this,'imuno_transplante')"><span class="chk-dot"></span><span class="option-text">Transplantada de órgão sólido ou medula</span></div>
         <div class="chk-option" onclick="toggleImuno(this,'imuno_cortico')"><span class="chk-dot"></span><span class="option-text">Uso de corticóide por mais de 3 meses</span></div>
@@ -413,36 +380,32 @@
         <div class="chk-option" id="chk-nenhum" onclick="toggleImuno(this,'imuno_nenhum')"><span class="chk-dot"></span><span class="option-text"><strong>Nenhuma das anteriores</strong></span></div>
       </div>
     </div>
-
     <div class="q-card">
-      <div class="q-label">Qual é a sua situação em relação ao tabagismo?</div>
+      <div class="q-label">Tabagismo</div>
       <div class="options" id="q-tabaco">
         <div class="option" onclick="selectOption(this,'q-tabaco','10_fumante')"><span class="radio-dot"></span><span class="option-text">Sou fumante atualmente</span></div>
-        <div class="option" onclick="selectOption(this,'q-tabaco','5_ex_recente')"><span class="radio-dot"></span><span class="option-text">Parei de fumar há <strong>menos de 5 anos</strong></span></div>
-        <div class="option" onclick="selectOption(this,'q-tabaco','0_ex_antigo')"><span class="radio-dot"></span><span class="option-text">Parei de fumar há <strong>5 anos ou mais</strong></span></div>
+        <div class="option" onclick="selectOption(this,'q-tabaco','5_ex_recente')"><span class="radio-dot"></span><span class="option-text">Parei há <strong>menos de 5 anos</strong></span></div>
+        <div class="option" onclick="selectOption(this,'q-tabaco','0_ex_antigo')"><span class="radio-dot"></span><span class="option-text">Parei há <strong>5 anos ou mais</strong></span></div>
         <div class="option" onclick="selectOption(this,'q-tabaco','0_nao_fuma')"><span class="radio-dot"></span><span class="option-text">Nunca fumei</span></div>
       </div>
     </div>
-
     <div class="q-card">
-      <div class="q-label">Você usou anticoncepcional oral (pílula) por 5 anos ou mais de forma contínua?</div>
+      <div class="q-label">Usou anticoncepcional oral por 5 anos ou mais continuamente?</div>
       <div class="options" id="q-aco">
-        <div class="option" onclick="selectOption(this,'q-aco','8_sim')"><span class="radio-dot"></span><span class="option-text">Sim, usei por 5 anos ou mais</span></div>
-        <div class="option" onclick="selectOption(this,'q-aco','0_nao')"><span class="radio-dot"></span><span class="option-text">Não (nunca usei ou usei por menos de 5 anos)</span></div>
+        <div class="option" onclick="selectOption(this,'q-aco','8_sim')"><span class="radio-dot"></span><span class="option-text">Sim, por 5 anos ou mais</span></div>
+        <div class="option" onclick="selectOption(this,'q-aco','0_nao')"><span class="radio-dot"></span><span class="option-text">Não (nunca usei ou menos de 5 anos)</span></div>
       </div>
     </div>
-
     <div class="q-card">
       <div class="q-label">Quantos partos vaginais você teve?</div>
       <div class="options" id="q-paridade">
         <div class="option" onclick="selectOption(this,'q-paridade','5_tres_mais')"><span class="radio-dot"></span><span class="option-text">3 ou mais partos vaginais</span></div>
         <div class="option" onclick="selectOption(this,'q-paridade','0_menos_tres')"><span class="radio-dot"></span><span class="option-text">Menos de 3 partos vaginais</span></div>
-        <div class="option" onclick="selectOption(this,'q-paridade','0_nenhum')"><span class="radio-dot"></span><span class="option-text">Nenhum parto vaginal (nulípara ou somente cesárea)</span></div>
+        <div class="option" onclick="selectOption(this,'q-paridade','0_nenhum')"><span class="radio-dot"></span><span class="option-text">Nenhum (nulípara ou somente cesárea)</span></div>
       </div>
     </div>
-
     <div class="q-card">
-      <div class="q-label">Você iniciou sua vida sexual antes dos 16 anos?</div>
+      <div class="q-label">Iniciou vida sexual antes dos 16 anos?</div>
       <div class="options" id="q-inicio">
         <div class="option" onclick="selectOption(this,'q-inicio','5_antes16')"><span class="radio-dot"></span><span class="option-text">Sim, antes dos 16 anos</span></div>
         <div class="option" onclick="selectOption(this,'q-inicio','0_depois16')"><span class="radio-dot"></span><span class="option-text">Não, aos 16 anos ou depois</span></div>
@@ -450,83 +413,247 @@
         <div class="option" onclick="selectOption(this,'q-inicio','0_prefiro')"><span class="radio-dot"></span><span class="option-text">Prefiro não informar</span></div>
       </div>
     </div>
-
     <div class="nav-row">
       <button class="btn-back" onclick="goTo('screen-blocoC')">←</button>
-      <button class="btn-next" id="btn-d-next" onclick="calcularScore()" disabled>Ver meu resultado →</button>
+      <button class="btn-next" id="btn-d-next" onclick="goTo('screen-blocoE')" disabled>Próximo: Conhecimento →</button>
+    </div>
+  </div>
+
+  <!-- BLOCO E — CONHECIMENTO -->
+  <div class="screen" id="screen-blocoE">
+    <div class="top-nav"><span class="step-indicator">Etapa 6 de 7</span></div>
+    <div class="section-header">
+      <div class="section-badge badge-purple">📚 Bloco E</div>
+      <h2 class="section-title">Conhecimento sobre HPV e rastreamento</h2>
+      <p class="section-desc">Não há respostas certas ou erradas — queremos entender o que as mulheres sabem sobre o tema.</p>
+    </div>
+    <div class="research-note">🔬 Este bloco é voltado exclusivamente para fins de pesquisa e não afeta sua classificação de risco.</div>
+    <div class="q-card">
+      <div class="q-label">O HPV é transmitido principalmente por:</div>
+      <div class="options" id="q-hpv_transm">
+        <div class="option" onclick="selectOption(this,'q-hpv_transm','beijo')"><span class="radio-dot"></span><span class="option-text">Beijos e contato com saliva</span></div>
+        <div class="option" onclick="selectOption(this,'q-hpv_transm','sexual_correto')"><span class="radio-dot"></span><span class="option-text">Relação sexual (contato pele a pele com a região genital)</span></div>
+        <div class="option" onclick="selectOption(this,'q-hpv_transm','banheiro')"><span class="radio-dot"></span><span class="option-text">Uso de banheiro público ou piscinas</span></div>
+        <div class="option" onclick="selectOption(this,'q-hpv_transm','nao_sei')"><span class="radio-dot"></span><span class="option-text">Não sei</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-label">A maioria das infecções por HPV:</div>
+      <div class="options" id="q-hpv_evolucao">
+        <div class="option" onclick="selectOption(this,'q-hpv_evolucao','desaparece_correto')"><span class="radio-dot"></span><span class="option-text">Desaparece sozinha com o tempo (sem tratamento)</span></div>
+        <div class="option" onclick="selectOption(this,'q-hpv_evolucao','sempre_cancer')"><span class="radio-dot"></span><span class="option-text">Sempre causa câncer</span></div>
+        <div class="option" onclick="selectOption(this,'q-hpv_evolucao','trat_imediato')"><span class="radio-dot"></span><span class="option-text">Precisa de tratamento imediato com antibióticos</span></div>
+        <div class="option" onclick="selectOption(this,'q-hpv_evolucao','nao_sei')"><span class="radio-dot"></span><span class="option-text">Não sei</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-label">O exame de Papanicolaou (preventivo) detecta principalmente:</div>
+      <div class="options" id="q-papa_funcao">
+        <div class="option" onclick="selectOption(this,'q-papa_funcao','lesoes_correto')"><span class="radio-dot"></span><span class="option-text">Lesões precursoras do câncer do colo do útero</span></div>
+        <div class="option" onclick="selectOption(this,'q-papa_funcao','hpv_direto')"><span class="radio-dot"></span><span class="option-text">O vírus HPV diretamente</span></div>
+        <div class="option" onclick="selectOption(this,'q-papa_funcao','ist_geral')"><span class="radio-dot"></span><span class="option-text">Infecções sexualmente transmissíveis em geral</span></div>
+        <div class="option" onclick="selectOption(this,'q-papa_funcao','nao_sei')"><span class="radio-dot"></span><span class="option-text">Não sei</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-label">Você sabia que o teste de DNA-HPV e o Papanicolaou são exames diferentes?</div>
+      <div class="options" id="q-diferenca_exames">
+        <div class="option" onclick="selectOption(this,'q-diferenca_exames','sim_sabia')"><span class="radio-dot"></span><span class="option-text">Sim, já sabia que são exames diferentes</span></div>
+        <div class="option" onclick="selectOption(this,'q-diferenca_exames','nao_sabia')"><span class="radio-dot"></span><span class="option-text">Não, achei que era o mesmo exame</span></div>
+        <div class="option" onclick="selectOption(this,'q-diferenca_exames','nao_sei')"><span class="radio-dot"></span><span class="option-text">Não sei a diferença entre eles</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-label">O câncer do colo do útero tem cura quando detectado precocemente?</div>
+      <div class="options" id="q-cura_cancer">
+        <div class="option" onclick="selectOption(this,'q-cura_cancer','sim_correto')"><span class="radio-dot"></span><span class="option-text">Sim, tem altas taxas de cura quando detectado cedo</span></div>
+        <div class="option" onclick="selectOption(this,'q-cura_cancer','nao')"><span class="radio-dot"></span><span class="option-text">Não, raramente tem cura</span></div>
+        <div class="option" onclick="selectOption(this,'q-cura_cancer','nao_sei')"><span class="radio-dot"></span><span class="option-text">Não sei</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-label">Onde você aprendeu o que sabe sobre HPV e câncer do colo do útero?</div>
+      <div class="q-hint">Escolha a principal fonte</div>
+      <div class="options" id="q-fonte_info">
+        <div class="option" onclick="selectOption(this,'q-fonte_info','medico')"><span class="radio-dot"></span><span class="option-text">Médico ou profissional de saúde</span></div>
+        <div class="option" onclick="selectOption(this,'q-fonte_info','escola')"><span class="radio-dot"></span><span class="option-text">Escola ou faculdade</span></div>
+        <div class="option" onclick="selectOption(this,'q-fonte_info','internet')"><span class="radio-dot"></span><span class="option-text">Internet (sites, blogs, YouTube)</span></div>
+        <div class="option" onclick="selectOption(this,'q-fonte_info','redes_sociais')"><span class="radio-dot"></span><span class="option-text">Redes sociais (Instagram, TikTok, Facebook)</span></div>
+        <div class="option" onclick="selectOption(this,'q-fonte_info','amigos_familia')"><span class="radio-dot"></span><span class="option-text">Amigos ou familiares</span></div>
+        <div class="option" onclick="selectOption(this,'q-fonte_info','pouco_nada')"><span class="radio-dot"></span><span class="option-text">Não tenho muita informação sobre o tema</span></div>
+      </div>
+    </div>
+    <div class="nav-row">
+      <button class="btn-back" onclick="goTo('screen-blocoD')">←</button>
+      <button class="btn-next" id="btn-e-next" onclick="goTo('screen-blocoF')" disabled>Próximo: Acesso e Saúde →</button>
+    </div>
+  </div>
+
+  <!-- BLOCO F — ACESSO E SAÚDE MENTAL -->
+  <div class="screen" id="screen-blocoF">
+    <div class="top-nav"><span class="step-indicator">Etapa 7 de 7</span></div>
+    <div class="section-header">
+      <div class="section-badge badge-green">🏥 Bloco F</div>
+      <h2 class="section-title">Acesso ao sistema de saúde e saúde emocional</h2>
+    </div>
+    <div class="research-note">🔬 Este bloco é voltado exclusivamente para fins de pesquisa e não afeta sua classificação de risco.</div>
+    <div class="q-card">
+      <div class="q-label">Você tem plano de saúde privado?</div>
+      <div class="options" id="q-plano">
+        <div class="option" onclick="selectOption(this,'q-plano','sim')"><span class="radio-dot"></span><span class="option-text">Sim, tenho plano de saúde privado</span></div>
+        <div class="option" onclick="selectOption(this,'q-plano','nao_sus')"><span class="radio-dot"></span><span class="option-text">Não — uso exclusivamente o SUS</span></div>
+        <div class="option" onclick="selectOption(this,'q-plano','ambos')"><span class="radio-dot"></span><span class="option-text">Tenho plano, mas também uso o SUS</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-label">Quanto tempo você leva para chegar à UBS mais próxima?</div>
+      <div class="options" id="q-tempo_ubs">
+        <div class="option" onclick="selectOption(this,'q-tempo_ubs','menos15')"><span class="radio-dot"></span><span class="option-text">Menos de 15 minutos</span></div>
+        <div class="option" onclick="selectOption(this,'q-tempo_ubs','15a30')"><span class="radio-dot"></span><span class="option-text">15 a 30 minutos</span></div>
+        <div class="option" onclick="selectOption(this,'q-tempo_ubs','30a60')"><span class="radio-dot"></span><span class="option-text">30 a 60 minutos</span></div>
+        <div class="option" onclick="selectOption(this,'q-tempo_ubs','mais60')"><span class="radio-dot"></span><span class="option-text">Mais de 60 minutos</span></div>
+        <div class="option" onclick="selectOption(this,'q-tempo_ubs','nao_sei')"><span class="radio-dot"></span><span class="option-text">Não sei onde fica a UBS mais próxima</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-label">Na última vez que tentou agendar exame ginecológico pelo SUS, quanto tempo esperou?</div>
+      <div class="options" id="q-espera_sus">
+        <div class="option" onclick="selectOption(this,'q-espera_sus','menos1mes')"><span class="radio-dot"></span><span class="option-text">Menos de 1 mês</span></div>
+        <div class="option" onclick="selectOption(this,'q-espera_sus','1a3meses')"><span class="radio-dot"></span><span class="option-text">Entre 1 e 3 meses</span></div>
+        <div class="option" onclick="selectOption(this,'q-espera_sus','mais3meses')"><span class="radio-dot"></span><span class="option-text">Mais de 3 meses</span></div>
+        <div class="option" onclick="selectOption(this,'q-espera_sus','nao_conseguiu')"><span class="radio-dot"></span><span class="option-text">Não consegui agendar</span></div>
+        <div class="option" onclick="selectOption(this,'q-espera_sus','nunca_tentou')"><span class="radio-dot"></span><span class="option-text">Nunca tentei agendar pelo SUS</span></div>
+        <div class="option" onclick="selectOption(this,'q-espera_sus','so_plano')"><span class="radio-dot"></span><span class="option-text">Uso somente plano de saúde privado</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-label">Qual é a sua renda familiar mensal aproximada?</div>
+      <div class="q-hint">Salário mínimo atual = R$ 1.412</div>
+      <div class="options" id="q-renda">
+        <div class="option" onclick="selectOption(this,'q-renda','ate1sm')"><span class="radio-dot"></span><span class="option-text">Até 1 salário mínimo (até R$ 1.412)</span></div>
+        <div class="option" onclick="selectOption(this,'q-renda','1a3sm')"><span class="radio-dot"></span><span class="option-text">Entre 1 e 3 salários mínimos</span></div>
+        <div class="option" onclick="selectOption(this,'q-renda','3a5sm')"><span class="radio-dot"></span><span class="option-text">Entre 3 e 5 salários mínimos</span></div>
+        <div class="option" onclick="selectOption(this,'q-renda','mais5sm')"><span class="radio-dot"></span><span class="option-text">Mais de 5 salários mínimos</span></div>
+        <div class="option" onclick="selectOption(this,'q-renda','prefiro')"><span class="radio-dot"></span><span class="option-text">Prefiro não informar</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-label">Você sente medo ou ansiedade quando pensa em realizar o exame ginecológico?</div>
+      <div class="options" id="q-medo_exame">
+        <div class="option" onclick="selectOption(this,'q-medo_exame','nunca')"><span class="radio-dot"></span><span class="option-text">Nunca — não sinto desconforto</span></div>
+        <div class="option" onclick="selectOption(this,'q-medo_exame','as_vezes')"><span class="radio-dot"></span><span class="option-text">Às vezes sinto um pouco de ansiedade</span></div>
+        <div class="option" onclick="selectOption(this,'q-medo_exame','frequente')"><span class="radio-dot"></span><span class="option-text">Frequentemente sinto medo ou ansiedade</span></div>
+        <div class="option" onclick="selectOption(this,'q-medo_exame','sempre')"><span class="radio-dot"></span><span class="option-text">Sempre — o medo é muito intenso</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-label">Você já adiou ou evitou o exame ginecológico por medo do resultado?</div>
+      <div class="options" id="q-adiou_medo">
+        <div class="option" onclick="selectOption(this,'q-adiou_medo','sim')"><span class="radio-dot"></span><span class="option-text">Sim, já adiou por medo do resultado</span></div>
+        <div class="option" onclick="selectOption(this,'q-adiou_medo','nao')"><span class="radio-dot"></span><span class="option-text">Não, o medo não me impede de fazer o exame</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-label">Alguém próxima a você já teve câncer do colo do útero?</div>
+      <div class="options" id="q-historico_familiar">
+        <div class="option" onclick="selectOption(this,'q-historico_familiar','sim_familiar')"><span class="radio-dot"></span><span class="option-text">Sim, um familiar (mãe, irmã, tia)</span></div>
+        <div class="option" onclick="selectOption(this,'q-historico_familiar','sim_amiga')"><span class="radio-dot"></span><span class="option-text">Sim, uma amiga ou conhecida</span></div>
+        <div class="option" onclick="selectOption(this,'q-historico_familiar','nao')"><span class="radio-dot"></span><span class="option-text">Não que eu saiba</span></div>
+        <div class="option" onclick="selectOption(this,'q-historico_familiar','nao_sei')"><span class="radio-dot"></span><span class="option-text">Não sei</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-label">Com que frequência você usa o celular para buscar informações de saúde?</div>
+      <div class="options" id="q-uso_saude_digital">
+        <div class="option" onclick="selectOption(this,'q-uso_saude_digital','nunca')"><span class="radio-dot"></span><span class="option-text">Nunca</span></div>
+        <div class="option" onclick="selectOption(this,'q-uso_saude_digital','raramente')"><span class="radio-dot"></span><span class="option-text">Raramente (menos de 1 vez por mês)</span></div>
+        <div class="option" onclick="selectOption(this,'q-uso_saude_digital','as_vezes')"><span class="radio-dot"></span><span class="option-text">Às vezes (algumas vezes por mês)</span></div>
+        <div class="option" onclick="selectOption(this,'q-uso_saude_digital','frequente')"><span class="radio-dot"></span><span class="option-text">Frequentemente (toda semana)</span></div>
+        <div class="option" onclick="selectOption(this,'q-uso_saude_digital','sempre')"><span class="radio-dot"></span><span class="option-text">Sempre que tenho alguma dúvida de saúde</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-label">Como você ficou sabendo deste aplicativo?</div>
+      <div class="options" id="q-canal_divulgacao">
+        <div class="option" onclick="selectOption(this,'q-canal_divulgacao','instagram')"><span class="radio-dot"></span><span class="option-text">Instagram</span></div>
+        <div class="option" onclick="selectOption(this,'q-canal_divulgacao','whatsapp')"><span class="radio-dot"></span><span class="option-text">WhatsApp</span></div>
+        <div class="option" onclick="selectOption(this,'q-canal_divulgacao','indicacao')"><span class="radio-dot"></span><span class="option-text">Indicação de amiga ou familiar</span></div>
+        <div class="option" onclick="selectOption(this,'q-canal_divulgacao','ubs')"><span class="radio-dot"></span><span class="option-text">UBS / posto de saúde</span></div>
+        <div class="option" onclick="selectOption(this,'q-canal_divulgacao','facebook')"><span class="radio-dot"></span><span class="option-text">Facebook ou outra rede social</span></div>
+        <div class="option" onclick="selectOption(this,'q-canal_divulgacao','outro')"><span class="radio-dot"></span><span class="option-text">Outro canal</span></div>
+      </div>
+    </div>
+    <div class="nav-row">
+      <button class="btn-back" onclick="goTo('screen-blocoE')">←</button>
+      <button class="btn-next" id="btn-f-next" onclick="calcularScore()" disabled>Ver meu resultado →</button>
     </div>
   </div>
 
   <!-- RESULTADO -->
-  <div class="screen" id="screen-resultado">
-    <div id="result-content"></div>
-  </div>
+  <div class="screen" id="screen-resultado"><div id="result-content"></div></div>
 
   <!-- FOLLOW-UP -->
   <div class="screen" id="screen-followup">
     <div class="top-nav"><span class="step-indicator">Follow-up</span></div>
     <div class="section-header">
-      <div class="section-badge">🔄 Retorno</div>
+      <div class="section-badge badge-teal">🔄 Retorno</div>
       <h2 class="section-title">Informe o resultado do seu exame</h2>
-      <p class="section-desc">Digite o código pessoal que você recebeu na sua primeira participação para vincular os dados.</p>
+      <p class="section-desc">Digite o código pessoal recebido na sua primeira participação.</p>
     </div>
     <div class="q-card">
       <div class="q-label">Seu código pessoal</div>
-      <div class="q-hint">Ex: MA1403 — o mesmo código exibido no seu resultado anterior</div>
-      <input type="text" class="num-input" id="fu-codigo" placeholder="Digite seu código aqui"
-             oninput="this.value=this.value.toUpperCase(); checkFollowup()"
-             maxlength="10" style="text-transform:uppercase; letter-spacing:0.15em; font-weight:600;"/>
+      <div class="q-hint">Ex: MA1403</div>
+      <input type="text" class="num-input" id="fu-codigo" placeholder="Digite seu código"
+             oninput="this.value=this.value.toUpperCase();checkFollowup()"
+             maxlength="10" style="text-transform:uppercase;letter-spacing:0.15em;font-weight:600;"/>
     </div>
     <div class="q-card">
       <div class="q-label">Você realizou o exame recomendado?</div>
       <div class="options" id="fu-realizou">
-        <div class="option" onclick="selectOption(this,'fu-realizou','sim'); checkFollowup()"><span class="radio-dot"></span><span class="option-text">Sim, realizei o exame</span></div>
-        <div class="option" onclick="selectOption(this,'fu-realizou','nao_ainda'); checkFollowup()"><span class="radio-dot"></span><span class="option-text">Ainda não realizei, mas pretendo</span></div>
-        <div class="option" onclick="selectOption(this,'fu-realizou','nao_barreiras'); checkFollowup()"><span class="radio-dot"></span><span class="option-text">Não realizei — encontrei dificuldades</span></div>
+        <div class="option" onclick="selectOption(this,'fu-realizou','sim');checkFollowup()"><span class="radio-dot"></span><span class="option-text">Sim, realizei o exame</span></div>
+        <div class="option" onclick="selectOption(this,'fu-realizou','nao_ainda');checkFollowup()"><span class="radio-dot"></span><span class="option-text">Ainda não realizei, mas pretendo</span></div>
+        <div class="option" onclick="selectOption(this,'fu-realizou','nao_barreiras');checkFollowup()"><span class="radio-dot"></span><span class="option-text">Não realizei — encontrei dificuldades</span></div>
       </div>
     </div>
     <div class="q-card" id="fu-resultado-card" style="display:none;">
-      <div class="q-label">Qual foi o resultado do exame?</div>
+      <div class="q-label">Qual foi o resultado?</div>
       <div class="options" id="fu-resultado">
         <div class="option" onclick="selectOption(this,'fu-resultado','dna_hpv_negativo')"><span class="radio-dot"></span><span class="option-text">DNA-HPV negativo</span></div>
         <div class="option" onclick="selectOption(this,'fu-resultado','dna_hpv_positivo_nao1618')"><span class="radio-dot"></span><span class="option-text">DNA-HPV positivo (não é HPV 16/18)</span></div>
         <div class="option" onclick="selectOption(this,'fu-resultado','dna_hpv_1618')"><span class="radio-dot"></span><span class="option-text">DNA-HPV positivo para HPV 16 e/ou 18</span></div>
-        <div class="option" onclick="selectOption(this,'fu-resultado','citologia_normal')"><span class="radio-dot"></span><span class="option-text">Citologia (Papanicolaou) normal</span></div>
+        <div class="option" onclick="selectOption(this,'fu-resultado','citologia_normal')"><span class="radio-dot"></span><span class="option-text">Citologia normal</span></div>
         <div class="option" onclick="selectOption(this,'fu-resultado','citologia_alterada')"><span class="radio-dot"></span><span class="option-text">Citologia alterada (ASC-US, LSIL, HSIL)</span></div>
-        <div class="option" onclick="selectOption(this,'fu-resultado','colposcopia_normal')"><span class="radio-dot"></span><span class="option-text">Colposcopia com biópsia normal / NIC 1</span></div>
+        <div class="option" onclick="selectOption(this,'fu-resultado','colposcopia_normal')"><span class="radio-dot"></span><span class="option-text">Colposcopia / biópsia normal ou NIC 1</span></div>
         <div class="option" onclick="selectOption(this,'fu-resultado','nic2_3')"><span class="radio-dot"></span><span class="option-text">NIC 2 ou NIC 3 confirmado</span></div>
         <div class="option" onclick="selectOption(this,'fu-resultado','aguardando')"><span class="radio-dot"></span><span class="option-text">Realizei mas ainda aguardo o resultado</span></div>
       </div>
     </div>
     <div class="q-card" id="fu-barreiras-card" style="display:none;">
-      <div class="q-label">Qual foi a principal dificuldade? (opcional)</div>
+      <div class="q-label">Principal dificuldade? (opcional)</div>
       <div class="options" id="fu-barreira">
         <div class="option" onclick="selectOption(this,'fu-barreira','fila_espera')"><span class="radio-dot"></span><span class="option-text">Fila de espera muito longa</span></div>
         <div class="option" onclick="selectOption(this,'fu-barreira','falta_tempo')"><span class="radio-dot"></span><span class="option-text">Falta de tempo / trabalho</span></div>
         <div class="option" onclick="selectOption(this,'fu-barreira','acesso_ubs')"><span class="radio-dot"></span><span class="option-text">Dificuldade de acesso à UBS</span></div>
         <div class="option" onclick="selectOption(this,'fu-barreira','medo')"><span class="radio-dot"></span><span class="option-text">Medo ou desconforto com o exame</span></div>
         <div class="option" onclick="selectOption(this,'fu-barreira','nao_soube')"><span class="radio-dot"></span><span class="option-text">Não sabia onde fazer</span></div>
+        <div class="option" onclick="selectOption(this,'fu-barreira','custo')"><span class="radio-dot"></span><span class="option-text">Custo financeiro (transporte, etc.)</span></div>
         <div class="option" onclick="selectOption(this,'fu-barreira','outra')"><span class="radio-dot"></span><span class="option-text">Outro motivo</span></div>
       </div>
     </div>
     <div class="nav-row">
       <button class="btn-back" onclick="goTo('screen-welcome')">←</button>
-      <button class="btn-next" id="btn-fu-next" onclick="enviarFollowup()" disabled>Enviar dados de follow-up →</button>
+      <button class="btn-next" id="btn-fu-next" onclick="enviarFollowup()" disabled>Enviar →</button>
     </div>
   </div>
 
   <!-- CONFIRMAÇÃO FOLLOW-UP -->
   <div class="screen" id="screen-fu-confirmacao">
-    <div style="text-align:center; padding-top:60px;">
-      <div style="font-size:64px; margin-bottom:20px;">✅</div>
-      <h2 style="font-family:var(--font-head); color:var(--teal-dark); margin-bottom:12px;">Dados registrados!</h2>
-      <p style="font-size:15px; color:var(--gray-700); line-height:1.7; margin-bottom:28px;">
-        Suas informações de follow-up foram registradas com sucesso e vinculadas ao seu código pessoal. Obrigada pela sua contribuição com a pesquisa!
+    <div style="text-align:center;padding-top:60px;">
+      <div style="font-size:64px;margin-bottom:20px;">✅</div>
+      <h2 style="font-family:var(--font-head);color:var(--teal-dark);margin-bottom:12px;">Dados registrados!</h2>
+      <p style="font-size:15px;color:var(--gray-700);line-height:1.7;margin-bottom:28px;">
+        Suas informações foram registradas. Obrigada pela contribuição com a pesquisa!
       </p>
-      <div class="ubs-card" style="text-align:left;">
-        <h3>📊 Importância do seu retorno</h3>
-        <p>Ao informar o resultado do exame, você ajuda a validar o algoritmo de risco e contribui diretamente para a melhoria do rastreamento do câncer do colo do útero no Brasil.</p>
-      </div>
       <button class="btn btn-secondary" onclick="location.reload()" style="margin-top:16px;">Voltar ao início</button>
     </div>
   </div>
@@ -534,37 +661,91 @@
 </div><!-- /app-wrap -->
 
 <script>
-// ─── CONFIGURAÇÃO ─────────────────────────────────────────────────────────────
-const SHEETS_URL = "https://script.google.com/macros/s/AKfycbwDAOxcmdQ4P8Y5jt8bVSav9mr1nwPEoxYOjJ5u3NAp/dev";
+// ═══════════════════════════════════════════════════════════════════════════════
+// ★ CONFIGURAÇÃO — URLs DOS GOOGLE FORMS ★
+// Substitua FORM_ID_AVALIACAO e FORM_ID_FOLLOWUP pelos IDs dos seus formulários
+// O ID fica na URL do formulário: docs.google.com/forms/d/e/FORM_ID/viewform
+// ═══════════════════════════════════════════════════════════════════════════════
+const FORM_ID_AVALIACAO = "COLE_AQUI_O_ID_DO_FORMULARIO_DE_AVALIACAO";
+const FORM_ID_FOLLOWUP  = "COLE_AQUI_O_ID_DO_FORMULARIO_DE_FOLLOWUP";
+
+// ─── MAPEAMENTO AVALIAÇÃO INICIAL (39 campos) ─────────────────────────────────
+const ENTRIES_AVALIACAO = {
+  tipo:               "entry.1905956594",
+  timestamp:          "entry.1402585312",
+  codigo_pessoal:     "entry.984134885",
+  idade:              "entry.733557435",
+  estado:             "entry.1869197200",
+  cidade:             "entry.1050861854",   // ★ NOVO
+  escolaridade:       "entry.1602150156",
+  hpv:                "entry.2077030360",
+  citologia:          "entry.2071628760",
+  vacina:             "entry.1576825425",
+  tabaco:             "entry.1388071776",
+  aco:                "entry.2068267390",
+  paridade:           "entry.1326835055",
+  inicio_sexual:      "entry.1768865416",
+  imunossupressao:    "entry.1433805499",
+  nivel1:             "entry.1711897152",
+  nivel1_motivo:      "entry.823433216",
+  score_total:        "entry.1262400242",
+  classificacao:      "entry.1270514374",
+  bloco_a:            "entry.539747785",
+  bloco_b:            "entry.329751133",
+  bloco_c:            "entry.368890485",
+  bloco_d:            "entry.1400756823",
+  hpv_transm:         "entry.2069637764",
+  hpv_evolucao:       "entry.363078746",
+  papa_funcao:        "entry.649422540",
+  diferenca_exames:   "entry.1467449909",
+  cura_cancer:        "entry.2012133223",
+  fonte_info:         "entry.1808835710",
+  escore_conhecimento:"entry.1698241689",
+  plano_saude:        "entry.1632612994",
+  tempo_ubs:          "entry.961239841",
+  espera_sus:         "entry.1808611335",
+  renda:              "entry.131758951",
+  medo_exame:         "entry.1366442050",
+  adiou_medo:         "entry.641683147",
+  historico_familiar: "entry.23604303",
+  uso_saude_digital:  "entry.2120474458",
+  canal_divulgacao:   "entry.782271846"
+};
+
+// ─── MAPEAMENTO FOLLOW-UP (6 campos) ─────────────────────────────────────────
+const ENTRIES_FOLLOWUP = {
+  tipo:           "entry.993408867",
+  timestamp:      "entry.1217866494",
+  codigo_pessoal: "entry.1302274803",
+  realizou_exame: "entry.382092348",
+  resultado_exame:"entry.1475843185",
+  barreira:       "entry.1297426581"
+};
 
 // ─── ESTADO ───────────────────────────────────────────────────────────────────
-// Armazena os valores selecionados de cada grupo
 const respostas = {};
-// Armazena as condições de imunossupressão (multi-seleção)
-const imunoSet = new Set();
+const imunoSet  = new Set();
 
 const PROGRESS = {
-  'screen-welcome':0, 'screen-tcle':8, 'screen-demografico':22,
-  'screen-blocoA':40, 'screen-blocoB':58, 'screen-blocoC':72,
-  'screen-blocoD':88, 'screen-resultado':100,
-  'screen-followup':10, 'screen-fu-confirmacao':100
+  'screen-welcome':0,'screen-tcle':5,'screen-demografico':15,
+  'screen-blocoA':28,'screen-blocoB':41,'screen-blocoC':54,
+  'screen-blocoD':67,'screen-blocoE':80,'screen-blocoF':93,
+  'screen-resultado':100,'screen-followup':5,'screen-fu-confirmacao':100
 };
 
 // ─── NAVEGAÇÃO ────────────────────────────────────────────────────────────────
 function goTo(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  window.scrollTo(0, 0);
-  document.getElementById('progressBar').style.width = (PROGRESS[id] || 0) + '%';
+  window.scrollTo(0,0);
+  document.getElementById('progressBar').style.width = (PROGRESS[id]||0)+'%';
 }
 
-// ─── TCLE ─────────────────────────────────────────────────────────────────────
 function updateTcleBtn() {
   document.getElementById('tcleBtn').disabled = !document.getElementById('tcleCheck').checked;
 }
 
-// ─── SELEÇÃO DE OPÇÕES (radio) ────────────────────────────────────────────────
-// Agora recebe o valor como parâmetro — sem depender de input hidden dentro do div
+// ─── SELEÇÃO ──────────────────────────────────────────────────────────────────
 function selectOption(el, groupId, valor) {
   document.getElementById(groupId).querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
   el.classList.add('selected');
@@ -573,12 +754,8 @@ function selectOption(el, groupId, valor) {
   updateNavButtons();
 }
 
-function getVal(groupId) {
-  return respostas[groupId] || '';
-}
+function getVal(groupId) { return respostas[groupId] || ''; }
 
-// ─── CHECKBOXES IMUNOSSUPRESSÃO ───────────────────────────────────────────────
-// Usa DIV (não label) — sem duplo disparo
 function toggleImuno(el, val) {
   if (val === 'imuno_nenhum') {
     imunoSet.clear();
@@ -586,90 +763,84 @@ function toggleImuno(el, val) {
     el.classList.add('selected');
     imunoSet.add('imuno_nenhum');
   } else {
-    // Remove "nenhuma" se estava marcada
     imunoSet.delete('imuno_nenhum');
     document.getElementById('chk-nenhum').classList.remove('selected');
-    // Toggle desta opção
-    if (imunoSet.has(val)) {
-      imunoSet.delete(val);
-      el.classList.remove('selected');
-    } else {
-      imunoSet.add(val);
-      el.classList.add('selected');
-    }
+    if (imunoSet.has(val)) { imunoSet.delete(val); el.classList.remove('selected'); }
+    else                   { imunoSet.add(val);    el.classList.add('selected'); }
   }
-  // Marca o card como respondido
   document.getElementById('card-imuno').classList.toggle('answered', imunoSet.size > 0);
   updateNavButtons();
 }
 
 // ─── NÍVEL 1 ──────────────────────────────────────────────────────────────────
 function checkLevel1() {
-  const val = getVal('q-hpv');
-  document.getElementById('alert-nivel1-hpv').style.display = val === 'NIVEL1' ? 'block' : 'none';
+  document.getElementById('alert-nivel1-hpv').style.display = getVal('q-hpv')==='NIVEL1' ? 'block':'none';
   updateNavButtons();
 }
-
 function checkLevel1B() {
-  const val = getVal('q-cito');
-  document.getElementById('alert-nivel1-cito').style.display = val === 'NIVEL1' ? 'block' : 'none';
+  document.getElementById('alert-nivel1-cito').style.display = getVal('q-cito')==='NIVEL1' ? 'block':'none';
   updateNavButtons();
 }
 
-// ─── BOTÕES DE NAVEGAÇÃO ──────────────────────────────────────────────────────
+// ─── NAVEGAÇÃO CONDICIONAL ────────────────────────────────────────────────────
 function updateNavDemo() {
-  const idade = parseInt(document.getElementById('q-idade').value);
+  const idade  = parseInt(document.getElementById('q-idade').value);
   const estado = document.getElementById('q-estado').value;
-  const esc = getVal('q-escolaridade');
-  const mae = document.getElementById('q-mae').value;
-  const dia = parseInt(document.getElementById('q-nasc-dia').value);
-  const mes = parseInt(document.getElementById('q-nasc-mes').value);
-  const ok = idade >= 18 && idade <= 100
-          && estado && esc
-          && mae.length === 2
-          && dia >= 1 && dia <= 31
-          && mes >= 1 && mes <= 12;
+  const cidade = document.getElementById('q-cidade').value.trim();
+  const mae    = document.getElementById('q-mae').value;
+  const dia    = parseInt(document.getElementById('q-nasc-dia').value);
+  const mes    = parseInt(document.getElementById('q-nasc-mes').value);
+  const ok = idade>=18 && idade<=100 && estado && cidade.length>=2
+          && getVal('q-escolaridade') && mae.length===2
+          && dia>=1 && dia<=31 && mes>=1 && mes<=12;
   document.getElementById('btn-demo-next').disabled = !ok;
 }
 
-function updateNavC() {
-  document.getElementById('btn-c-next').disabled = !getVal('q-vacina');
-}
+function updateNavC() { document.getElementById('btn-c-next').disabled = !getVal('q-vacina'); }
 
 function updateNavButtons() {
   document.getElementById('btn-a-next').disabled = !getVal('q-hpv');
   document.getElementById('btn-b-next').disabled = !getVal('q-cito');
-  const dOk = getVal('q-tabaco') && getVal('q-aco') && getVal('q-paridade') && getVal('q-inicio') && imunoSet.size > 0;
+  const dOk = getVal('q-tabaco') && getVal('q-aco') && getVal('q-paridade')
+           && getVal('q-inicio') && imunoSet.size > 0;
   document.getElementById('btn-d-next').disabled = !dOk;
+  const eOk = getVal('q-hpv_transm') && getVal('q-hpv_evolucao') && getVal('q-papa_funcao')
+           && getVal('q-diferenca_exames') && getVal('q-cura_cancer') && getVal('q-fonte_info');
+  document.getElementById('btn-e-next').disabled = !eOk;
+  const fOk = getVal('q-plano') && getVal('q-tempo_ubs') && getVal('q-espera_sus')
+           && getVal('q-renda') && getVal('q-medo_exame') && getVal('q-adiou_medo')
+           && getVal('q-historico_familiar') && getVal('q-uso_saude_digital')
+           && getVal('q-canal_divulgacao');
+  document.getElementById('btn-f-next').disabled = !fOk;
 }
 
 // ─── CÓDIGO PESSOAL ───────────────────────────────────────────────────────────
 function gerarCodigo() {
   const mae = document.getElementById('q-mae').value.toUpperCase();
-  const dia = String(document.getElementById('q-nasc-dia').value).padStart(2, '0');
-  const mes = String(document.getElementById('q-nasc-mes').value).padStart(2, '0');
+  const dia = String(document.getElementById('q-nasc-dia').value).padStart(2,'0');
+  const mes = String(document.getElementById('q-nasc-mes').value).padStart(2,'0');
   return mae + dia + mes;
 }
 
 // ─── FOLLOW-UP ────────────────────────────────────────────────────────────────
 function checkFollowup() {
-  const codigo = document.getElementById('fu-codigo').value;
+  const codigo  = document.getElementById('fu-codigo').value;
   const realizou = getVal('fu-realizou');
-  document.getElementById('fu-resultado-card').style.display  = realizou === 'sim'           ? 'block' : 'none';
-  document.getElementById('fu-barreiras-card').style.display  = realizou === 'nao_barreiras' ? 'block' : 'none';
-  document.getElementById('btn-fu-next').disabled = !(codigo.length >= 4 && realizou);
+  document.getElementById('fu-resultado-card').style.display  = realizou==='sim'           ? 'block':'none';
+  document.getElementById('fu-barreiras-card').style.display  = realizou==='nao_barreiras' ? 'block':'none';
+  document.getElementById('btn-fu-next').disabled = !(codigo.length>=4 && realizou);
 }
 
 function enviarFollowup() {
-  const payload = {
-    tipo: 'followup',
-    timestamp: new Date().toISOString(),
+  const dados = {
+    tipo:           'followup',
+    timestamp:      new Date().toISOString(),
     codigo_pessoal: document.getElementById('fu-codigo').value,
     realizou_exame: getVal('fu-realizou'),
-    resultado_exame: getVal('fu-resultado'),
-    barreira: getVal('fu-barreira')
+    resultado_exame:getVal('fu-resultado'),
+    barreira:       getVal('fu-barreira')
   };
-  enviarViaFormulario(payload);
+  enviarParaForms(FORM_ID_FOLLOWUP, ENTRIES_FOLLOWUP, dados);
   goTo('screen-fu-confirmacao');
 }
 
@@ -677,11 +848,11 @@ function enviarFollowup() {
 function calcularScore() {
   document.getElementById('loadingScreen').classList.add('active');
   setTimeout(() => {
-    const dados = coletarDados();
+    const dados     = coletarDados();
     const resultado = calcular(dados);
-    const codigo = gerarCodigo();
+    const codigo    = gerarCodigo();
     renderizarResultado(resultado, dados, codigo);
-    enviarDados(dados, resultado, codigo);
+    enviarAvaliacao(dados, resultado, codigo);
     document.getElementById('loadingScreen').classList.remove('active');
     goTo('screen-resultado');
   }, 1800);
@@ -689,219 +860,228 @@ function calcularScore() {
 
 function coletarDados() {
   return {
-    idade:      parseInt(document.getElementById('q-idade').value) || 0,
-    estado:     document.getElementById('q-estado').value,
-    esc:        getVal('q-escolaridade'),
-    hpvVal:     getVal('q-hpv'),
-    citoVal:    getVal('q-cito'),
-    vacinaVal:  getVal('q-vacina'),
-    tabacoVal:  getVal('q-tabaco'),
-    acoVal:     getVal('q-aco'),
-    paridadeVal:getVal('q-paridade'),
-    inicioVal:  getVal('q-inicio'),
-    imuno:      [...imunoSet],
-    timestamp:  new Date().toISOString()
+    idade:       parseInt(document.getElementById('q-idade').value)||0,
+    estado:      document.getElementById('q-estado').value,
+    cidade:      document.getElementById('q-cidade').value.trim(),
+    esc:         getVal('q-escolaridade'),
+    hpvVal:      getVal('q-hpv'),
+    citoVal:     getVal('q-cito'),
+    vacinaVal:   getVal('q-vacina'),
+    tabacoVal:   getVal('q-tabaco'),
+    acoVal:      getVal('q-aco'),
+    paridadeVal: getVal('q-paridade'),
+    inicioVal:   getVal('q-inicio'),
+    imuno:       [...imunoSet],
+    hpv_transm:       getVal('q-hpv_transm'),
+    hpv_evolucao:     getVal('q-hpv_evolucao'),
+    papa_funcao:      getVal('q-papa_funcao'),
+    diferenca_exames: getVal('q-diferenca_exames'),
+    cura_cancer:      getVal('q-cura_cancer'),
+    fonte_info:       getVal('q-fonte_info'),
+    plano:             getVal('q-plano'),
+    tempo_ubs:         getVal('q-tempo_ubs'),
+    espera_sus:        getVal('q-espera_sus'),
+    renda:             getVal('q-renda'),
+    medo_exame:        getVal('q-medo_exame'),
+    adiou_medo:        getVal('q-adiou_medo'),
+    historico_familiar:getVal('q-historico_familiar'),
+    uso_saude_digital: getVal('q-uso_saude_digital'),
+    canal_divulgacao:  getVal('q-canal_divulgacao'),
+    timestamp: new Date().toISOString()
   };
 }
 
+function calcularEscoreConhecimento(d) {
+  let s = 0;
+  if (d.hpv_transm       === 'sexual_correto')    s++;
+  if (d.hpv_evolucao     === 'desaparece_correto') s++;
+  if (d.papa_funcao      === 'lesoes_correto')     s++;
+  if (d.diferenca_exames === 'sim_sabia')          s++;
+  if (d.cura_cancer      === 'sim_correto')        s++;
+  return s;
+}
+
 function parsePoints(str) {
-  const n = parseInt((str || '').split('_')[0]);
+  const n = parseInt((str||'').split('_')[0]);
   return isNaN(n) ? 0 : n;
 }
 
 function calcular(d) {
-  // NÍVEL 1 — bypass direto
-  if (d.hpvVal === 'NIVEL1' || d.citoVal === 'NIVEL1') {
-    return {
-      nivel1: true,
-      motivo: d.hpvVal === 'NIVEL1' ? 'HPV 16 e/ou HPV 18 positivo' : 'Citologia com HSIL ou ASC-H sem seguimento adequado',
-      score: null
-    };
+  if (d.hpvVal==='NIVEL1' || d.citoVal==='NIVEL1') {
+    return { nivel1:true, motivo: d.hpvVal==='NIVEL1'
+      ? 'HPV 16 e/ou HPV 18 positivo'
+      : 'Citologia com HSIL ou ASC-H sem seguimento adequado', score:null };
   }
-  const temImuno = d.imuno.some(v => v !== 'imuno_nenhum');
-  if (temImuno && ['25_oncogenico_normal','40_oncogenico_alterada'].includes(d.hpvVal)) {
-    return { nivel1: true, motivo: 'Imunossupressão com HPV oncogênico positivo', score: null };
-  }
-  // Blocos
+  const temImuno = d.imuno.some(v => v!=='imuno_nenhum');
+  if (temImuno && ['25_oncogenico_normal','40_oncogenico_alterada'].includes(d.hpvVal))
+    return { nivel1:true, motivo:'Imunossupressão com HPV oncogênico positivo', score:null };
   const blocoA = parsePoints(d.hpvVal);
   const blocoB = parsePoints(d.citoVal);
   const blocoC = parsePoints(d.vacinaVal);
   let blocoD = 0;
   if (temImuno) blocoD += 20;
-  blocoD += parsePoints(d.tabacoVal) + parsePoints(d.acoVal) + parsePoints(d.paridadeVal) + parsePoints(d.inicioVal);
-  if (d.idade >= 45) blocoD += 5;
-  const total = blocoA + blocoB + blocoC + blocoD;
+  blocoD += parsePoints(d.tabacoVal)+parsePoints(d.acoVal)+parsePoints(d.paridadeVal)+parsePoints(d.inicioVal);
+  if (d.idade>=45) blocoD += 5;
+  const total = blocoA+blocoB+blocoC+blocoD;
   let classificacao, cor, emoji;
-  if      (total <= 20) { classificacao = 'Baixo Risco';      cor = 'low';   emoji = '🟢'; }
-  else if (total <= 45) { classificacao = 'Risco Moderado';   cor = 'mod';   emoji = '🟡'; }
-  else if (total <= 80) { classificacao = 'Alto Risco';       cor = 'high';  emoji = '🟠'; }
-  else                  { classificacao = 'Risco Muito Alto'; cor = 'vhigh'; emoji = '🔴'; }
-  return { nivel1: false, score: total, classificacao, cor, emoji, blocoA, blocoB, blocoC, blocoD };
+  if      (total<=20) { classificacao='Baixo Risco';      cor='low';   emoji='🟢'; }
+  else if (total<=45) { classificacao='Risco Moderado';   cor='mod';   emoji='🟡'; }
+  else if (total<=80) { classificacao='Alto Risco';       cor='high';  emoji='🟠'; }
+  else                { classificacao='Risco Muito Alto'; cor='vhigh'; emoji='🔴'; }
+  return { nivel1:false, score:total, classificacao, cor, emoji,
+           blocoA, blocoB, blocoC, blocoD,
+           escoreConhecimento: calcularEscoreConhecimento(d) };
 }
 
 // ─── RENDERIZAR RESULTADO ─────────────────────────────────────────────────────
 function renderizarResultado(r, d, codigo) {
   const container = document.getElementById('result-content');
-  const codigoBox = `
-    <div class="codigo-box">
-      <p class="codigo-label">Seu código pessoal de acompanhamento</p>
-      <p class="codigo-valor">${codigo}</p>
-      <p class="codigo-hint">Guarde este código. Você precisará dele para informar o resultado do seu exame e contribuir com a pesquisa.</p>
-    </div>`;
+  const codigoBox = `<div class="codigo-box">
+    <p class="codigo-label">Seu código pessoal de acompanhamento</p>
+    <p class="codigo-valor">${codigo}</p>
+    <p class="codigo-hint">Guarde este código para informar o resultado do seu exame e contribuir com a pesquisa.</p>
+  </div>`;
 
   if (r.nivel1) {
-    container.innerHTML = `
-      <div style="padding-top:24px;">
-        <div class="result-header">
-          <div class="result-ring" style="background:var(--rose-light); font-size:56px;">🚨</div>
-          <div class="result-class" style="color:var(--rose);">Ação Imediata Necessária</div>
-          <div class="result-desc">Com base nas suas respostas, identificamos uma condição que requer avaliação médica urgente.</div>
-        </div>
-        <div class="result-card result-action">
-          <h3>⚠️ Motivo do encaminhamento imediato</h3>
-          <p style="font-size:14px; line-height:1.6;">${r.motivo}</p>
-        </div>
-        <div class="result-card result-action">
-          <h3>📋 O que fazer agora</h3>
-          <ul>
-            <li>Procure uma UBS ou ambulatório de ginecologia <strong>o mais breve possível</strong></li>
-            <li>Solicite encaminhamento para <strong>colposcopia</strong></li>
-            <li>Leve seus exames anteriores na consulta</li>
-            <li>Não adie o atendimento — o diagnóstico precoce salva vidas</li>
-          </ul>
-        </div>
-        <div class="ubs-card">
-          <h3>🏥 Encontre uma UBS perto de você</h3>
-          <p>Acesse: <a href="https://www.cnes.datasus.gov.br" target="_blank">cnes.datasus.gov.br</a></p>
-          <p style="margin-top:8px;">Central de regulação do SUS: ligue <strong>136</strong></p>
-        </div>
-        ${codigoBox}
-        <div class="disclaimer">Este aplicativo é um instrumento de triagem e não substitui avaliação médica presencial.</div>
-        <button class="btn btn-secondary" onclick="location.reload()">Fazer nova avaliação</button>
-      </div>`;
+    container.innerHTML = `<div style="padding-top:24px;">
+      <div class="result-header">
+        <div class="result-ring" style="background:var(--rose-light);font-size:56px;">🚨</div>
+        <div class="result-class" style="color:var(--rose);">Ação Imediata Necessária</div>
+      </div>
+      <div class="result-card result-action"><h3>⚠️ Motivo</h3><p style="font-size:14px;line-height:1.6;">${r.motivo}</p></div>
+      <div class="result-card result-action"><h3>📋 O que fazer agora</h3><ul>
+        <li>Procure uma UBS ou ambulatório de ginecologia <strong>o mais breve possível</strong></li>
+        <li>Solicite encaminhamento para <strong>colposcopia</strong></li>
+        <li>Leve seus exames anteriores na consulta</li>
+      </ul></div>
+      <div class="ubs-card"><h3>🏥 Encontre uma UBS</h3>
+        <p><a href="https://www.cnes.datasus.gov.br" target="_blank">cnes.datasus.gov.br</a> — Central SUS: <strong>136</strong></p>
+      </div>
+      ${codigoBox}
+      <div class="disclaimer">Instrumento de triagem — não substitui avaliação médica presencial.</div>
+      <button class="btn btn-secondary" onclick="location.reload()">Fazer nova avaliação</button>
+    </div>`;
     return;
   }
 
   const condutaMap = {
-    low:   { title: '✅ Mantenha o rastreamento em dia', items: ['Continue realizando o DNA-HPV a cada <strong>5 anos</strong> conforme recomendação do MS/INCA 2025','Se o DNA-HPV não estiver disponível, realize o Papanicolaou a cada 3 anos','Verifique sua situação vacinal — a vacina HPV está disponível no SUS para até 45 anos','Mantenha consultas ginecológicas regulares'] },
-    mod:   { title: '📅 Priorize a atualização do seu rastreamento', items: ['Agende com prioridade a realização do <strong>teste DNA-HPV</strong> na UBS ou laboratório','Se tiver fatores de risco modificáveis (tabagismo, ACO prolongado), converse com seu médico','Verifique se você está em atraso com a citologia ou o DNA-HPV e regularize','Não deixe para depois — o rastreamento em dia é a melhor prevenção'] },
-    high:  { title: '🔍 Busque avaliação ginecológica com prioridade', items: ['Procure uma UBS ou ambulatório de ginecologia para realizar <strong>DNA-HPV + citologia reflexa</strong>','Informe seu médico sobre seus fatores de risco identificados nesta avaliação','Não adie — o diagnóstico precoce das lesões precursoras é altamente curável','Caso já tenha resultado de HPV positivo (não 16/18), siga rigorosamente o protocolo de seguimento'] },
-    vhigh: { title: '🚨 Procure atendimento com urgência', items: ['Você apresenta combinação de múltiplos fatores de risco — procure avaliação <strong>o mais breve possível</strong>','Solicite DNA-HPV com genotipagem completa se ainda não realizou','Informe ao médico todas as condições de saúde identificadas (imunossupressão, tabagismo, etc.)','Não aguarde fila de rotina — peça encaminhamento prioritário ao ginecologista'] }
+    low:   { title:'✅ Mantenha o rastreamento em dia',         items:['Continue com DNA-HPV a cada <strong>5 anos</strong> — MS/INCA 2025','Realize o Papanicolaou a cada 3 anos se o DNA-HPV não estiver disponível','Vacina HPV disponível no SUS até 45 anos','Mantenha consultas ginecológicas regulares'] },
+    mod:   { title:'📅 Atualize seu rastreamento com prioridade', items:['Agende o <strong>teste DNA-HPV</strong> na UBS ou laboratório com prioridade','Converse com seu médico sobre fatores de risco modificáveis','Não deixe para depois — rastreamento em dia é a melhor prevenção'] },
+    high:  { title:'🔍 Busque avaliação ginecológica prioritária', items:['Realize <strong>DNA-HPV + citologia reflexa</strong> com urgência','Informe ao médico todos os fatores de risco identificados aqui','O diagnóstico precoce de lesões precursoras é altamente curável'] },
+    vhigh: { title:'🚨 Procure atendimento com urgência',         items:['Múltiplos fatores de risco — busque avaliação <strong>o mais breve possível</strong>','Solicite DNA-HPV com genotipagem completa','Não aguarde fila de rotina — peça encaminhamento prioritário'] }
   };
 
-  const conduta = condutaMap[r.cor];
-  const ringBg    = { low:'var(--green-light)', mod:'var(--yellow-light)', high:'var(--orange-light)', vhigh:'var(--red-light)' }[r.cor];
-  const textColor = { low:'var(--green)',       mod:'var(--yellow)',       high:'var(--orange)',       vhigh:'var(--red)'       }[r.cor];
+  const c = condutaMap[r.cor];
+  const ringBg    = {low:'var(--green-light)',mod:'var(--yellow-light)',high:'var(--orange-light)',vhigh:'var(--red-light)'}[r.cor];
+  const textColor = {low:'var(--green)',mod:'var(--yellow)',high:'var(--orange)',vhigh:'var(--red)'}[r.cor];
 
-  container.innerHTML = `
-    <div style="padding-top:24px;">
-      <div class="result-header">
-        <div class="result-ring" style="background:${ringBg};"><span style="font-size:52px;">${r.emoji}</span></div>
-        <div class="result-score" style="color:${textColor};">${r.score}</div>
-        <div class="result-score-label">Pontuação total (máx. 123)</div>
-        <div class="result-class" style="color:${textColor};">${r.classificacao}</div>
-      </div>
-      <div class="result-card result-${r.cor}">
-        <h3>${conduta.title}</h3>
-        <ul>${conduta.items.map(i => '<li>' + i + '</li>').join('')}</ul>
-      </div>
-      <div class="score-breakdown">
-        <h3>Composição da sua pontuação</h3>
-        ${scoreRow('Bloco A — Teste DNA-HPV', r.blocoA)}
-        ${scoreRow('Bloco B — Citologia (Papanicolaou)', r.blocoB)}
-        ${scoreRow('Bloco C — Vacinação HPV', r.blocoC)}
-        ${scoreRow('Bloco D — Co-fatores clínicos', r.blocoD)}
-        <hr class="divider-score"/>
-        <div class="score-total-row">
-          <span>Pontuação Total</span>
-          <span style="color:${textColor}; font-family:var(--font-head); font-size:20px;">${r.score} pts</span>
-        </div>
-      </div>
-      <div class="ubs-card">
-        <h3>📍 Encontre atendimento próximo a você</h3>
-        <p>Acesse: <a href="https://www.cnes.datasus.gov.br" target="_blank">cnes.datasus.gov.br</a> para localizar UBS e serviços de ginecologia pelo SUS.</p>
-        <p style="margin-top:8px;">Dúvidas? Ligue: <strong>136</strong> (Ministério da Saúde, gratuito)</p>
-      </div>
-      ${codigoBox}
-      <div class="disclaimer">Este resultado é gerado por um algoritmo de triagem baseado nas Diretrizes MS/INCA 2025 e não substitui avaliação médica presencial. Dados registrados de forma anônima para fins de pesquisa (CEP aprovado).</div>
-      <button class="btn btn-secondary" onclick="location.reload()" style="margin-top:8px;">Fazer nova avaliação</button>
-    </div>`;
+  container.innerHTML = `<div style="padding-top:24px;">
+    <div class="result-header">
+      <div class="result-ring" style="background:${ringBg};"><span style="font-size:52px;">${r.emoji}</span></div>
+      <div class="result-score" style="color:${textColor};">${r.score}</div>
+      <div class="result-score-label">Pontuação total (máx. 123)</div>
+      <div class="result-class" style="color:${textColor};">${r.classificacao}</div>
+    </div>
+    <div class="result-card result-${r.cor}"><h3>${c.title}</h3><ul>${c.items.map(i=>'<li>'+i+'</li>').join('')}</ul></div>
+    <div class="score-breakdown"><h3>Composição da pontuação</h3>
+      ${scoreRow('Bloco A — Teste DNA-HPV',r.blocoA)}
+      ${scoreRow('Bloco B — Citologia',r.blocoB)}
+      ${scoreRow('Bloco C — Vacinação HPV',r.blocoC)}
+      ${scoreRow('Bloco D — Co-fatores clínicos',r.blocoD)}
+      <hr class="divider-score"/>
+      <div class="score-total-row"><span>Total</span><span style="color:${textColor};font-family:var(--font-head);font-size:20px;">${r.score} pts</span></div>
+    </div>
+    <div style="background:var(--purple-light);border-radius:var(--radius);padding:18px;margin-bottom:14px;border-left:4px solid var(--purple);">
+      <p style="font-size:14px;color:var(--purple);font-weight:600;margin-bottom:6px;">📚 Seu escore de conhecimento sobre HPV</p>
+      <p style="font-size:22px;font-weight:700;color:var(--purple);font-family:var(--font-head);">${r.escoreConhecimento} / 5</p>
+      <p style="font-size:13px;color:var(--gray-700);margin-top:6px;line-height:1.5;">Informativo apenas — não influencia sua classificação de risco. Quanto mais você sabe sobre HPV, mais fácil fica tomar decisões sobre o rastreamento.</p>
+    </div>
+    <div class="ubs-card"><h3>📍 Encontre atendimento</h3>
+      <p><a href="https://www.cnes.datasus.gov.br" target="_blank">cnes.datasus.gov.br</a> — Dúvidas: <strong>136</strong> (gratuito)</p>
+    </div>
+    ${codigoBox}
+    <div class="disclaimer">Algoritmo baseado nas Diretrizes MS/INCA 2025. Não substitui avaliação médica. Dados registrados anonimamente para fins de pesquisa (CEP aprovado).</div>
+    <button class="btn btn-secondary" onclick="location.reload()" style="margin-top:8px;">Fazer nova avaliação</button>
+  </div>`;
 }
 
-function scoreRow(label, pts) {
-  const cls = pts < 0 ? 'negative' : pts === 0 ? 'zero' : '';
-  return '<div class="score-row"><span class="label">' + label + '</span><span class="pts ' + cls + '">' + (pts > 0 ? '+' : '') + pts + '</span></div>';
+function scoreRow(label,pts) {
+  const cls = pts<0?'neg':pts===0?'zero':'';
+  return '<div class="score-row"><span class="lbl">'+label+'</span><span class="pts '+cls+'">'+(pts>0?'+':'')+pts+'</span></div>';
 }
 
-// ─── ENVIO VIA FORMULÁRIO OCULTO (sem bloqueio de CORS) ──────────────────────
-function enviarViaFormulario(payload) {
-  const FORM_ID = "1FAIpQLSeea1GS3IG_wfqO9iPz25cGyn4qDNmEXNXPCF6QvMGlMBYGGQ";
-
-  const campos = {
-    "entry.1905956594":  payload.timestamp       || "",
-    "entry.1402585312":  payload.tipo            || "",
-    "entry.984134885":  payload.codigo_pessoal  || "",
-    "entry.733557435":  payload.idade           || "",
-    "entry.1869197200":  payload.estado          || "",
-    "entry.1602150156":  payload.escolaridade    || "",
-    "entry.2077030360":  payload.hpv             || "",
-    "entry.2071628760":  payload.citologia       || "",
-    "entry.1576825425":  payload.vacina          || "",
-    "entry.1388071776": payload.tabaco          || "",
-    "entry.2068267390": payload.aco             || "",
-    "entry.1326835055": payload.paridade        || "",
-    "entry.1768865416": payload.inicio_sexual   || "",
-    "entry.1433805499": payload.imunossupressao || "",
-    "entry.1711897152": payload.nivel1          || "",
-    "entry.823433216": payload.nivel1_motivo   || "",
-    "entry.1262400242": payload.score_total     || "",
-    "entry.1270514374": payload.classificacao   || "",
-    "entry.539747785": payload.bloco_a         || "",
-    "entry.329751133": payload.bloco_b         || "",
-    "entry.368890485": payload.bloco_c         || "",
-    "entry.1400756823": payload.bloco_d         || "",
-    "entry.1575899407": payload.realizou_exame  || "",
-    "entry.1429545503": payload.resultado_exame || "",
-    "entry.76469462": payload.barreira        || ""
-  };
-
-  const url = "https://docs.google.com/forms/d/e/" + FORM_ID + "/formResponse";
-  const body = new URLSearchParams(campos);
-
-  fetch(url, {
-    method: "POST",
-    mode: "no-cors",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: body.toString()
-  }).catch(e => console.warn("Erro ao enviar:", e));
+// ─── ENVIO PARA GOOGLE FORMS ─────────────────────────────────────────────────
+// Método mais confiável: POST direto para formResponse com URLSearchParams
+function enviarParaForms(formId, entries, dados) {
+  if (!formId || formId.includes('COLE_AQUI')) {
+    console.warn('URL do Google Forms não configurada ainda.');
+    return;
+  }
+  try {
+    const url    = 'https://docs.google.com/forms/d/e/' + formId + '/formResponse';
+    const params = new URLSearchParams();
+    // Mapeia cada campo do payload para o entry correspondente
+    Object.keys(entries).forEach(campo => {
+      const valor = dados[campo];
+      if (valor !== undefined && valor !== null && valor !== '') {
+        params.append(entries[campo], String(valor));
+      }
+    });
+    fetch(url, {
+      method:  'POST',
+      mode:    'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body:    params.toString()
+    }).catch(e => console.warn('Erro ao enviar para Forms:', e));
+  } catch(e) {
+    console.warn('Erro ao enviar:', e);
+  }
 }
 
-function enviarDados(dados, resultado, codigo) {
+function enviarAvaliacao(dados, resultado, codigo) {
+  const escore = calcularEscoreConhecimento(dados);
   const payload = {
-    tipo:           'avaliacao_inicial',
-    timestamp:      dados.timestamp,
-    codigo_pessoal: codigo,
-    idade:          dados.idade,
-    estado:         dados.estado,
-    escolaridade:   dados.esc,
-    hpv:            dados.hpvVal,
-    citologia:      dados.citoVal,
-    vacina:         dados.vacinaVal,
-    tabaco:         dados.tabacoVal,
-    aco:            dados.acoVal,
-    paridade:       dados.paridadeVal,
-    inicio_sexual:  dados.inicioVal,
-    imunossupressao:dados.imuno.join(';'),
-    nivel1:         resultado.nivel1,
-    nivel1_motivo:  resultado.motivo  || '',
-    score_total:    resultado.score   ?? 'NIVEL1',
-    classificacao:  resultado.classificacao || 'NIVEL1',
-    bloco_a:        resultado.blocoA  ?? '',
-    bloco_b:        resultado.blocoB  ?? '',
-    bloco_c:        resultado.blocoC  ?? '',
-    bloco_d:        resultado.blocoD  ?? ''
+    tipo:               'avaliacao_inicial',
+    timestamp:          dados.timestamp,
+    codigo_pessoal:     codigo,
+    idade:              dados.idade,
+    estado:             dados.estado,
+    cidade:             dados.cidade,           // ★ NOVO
+    escolaridade:       dados.esc,
+    hpv:                dados.hpvVal,
+    citologia:          dados.citoVal,
+    vacina:             dados.vacinaVal,
+    tabaco:             dados.tabacoVal,
+    aco:                dados.acoVal,
+    paridade:           dados.paridadeVal,
+    inicio_sexual:      dados.inicioVal,
+    imunossupressao:    dados.imuno.join(';'),
+    nivel1:             resultado.nivel1,
+    nivel1_motivo:      resultado.motivo||'',
+    score_total:        resultado.score??'NIVEL1',
+    classificacao:      resultado.classificacao||'NIVEL1',
+    bloco_a:            resultado.blocoA??'',
+    bloco_b:            resultado.blocoB??'',
+    bloco_c:            resultado.blocoC??'',
+    bloco_d:            resultado.blocoD??'',
+    hpv_transm:         dados.hpv_transm,
+    hpv_evolucao:       dados.hpv_evolucao,
+    papa_funcao:        dados.papa_funcao,
+    diferenca_exames:   dados.diferenca_exames,
+    cura_cancer:        dados.cura_cancer,
+    fonte_info:         dados.fonte_info,
+    escore_conhecimento:escore,
+    plano_saude:        dados.plano,
+    tempo_ubs:          dados.tempo_ubs,
+    espera_sus:         dados.espera_sus,
+    renda:              dados.renda,
+    medo_exame:         dados.medo_exame,
+    adiou_medo:         dados.adiou_medo,
+    historico_familiar: dados.historico_familiar,
+    uso_saude_digital:  dados.uso_saude_digital,
+    canal_divulgacao:   dados.canal_divulgacao
   };
-  enviarViaFormulario(payload);
+  enviarParaForms(FORM_ID_AVALIACAO, ENTRIES_AVALIACAO, payload);
 }
 </script>
 </body>
